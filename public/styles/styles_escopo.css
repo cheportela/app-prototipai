@@ -1,5 +1,5 @@
 /* Importação das Fontes */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&family=Pacifico&display=swap');
 
 /* Definição das Cores */
 :root {
@@ -34,7 +34,7 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Centraliza os itens do menu */
   background-color: var(--background-color);
   padding: 15px 30px;
   box-shadow: var(--navbar-shadow);
@@ -43,18 +43,22 @@ body {
 }
 
 .navbar-logo {
-  font-size: 1.5rem;
+  font-family: 'Pacifico', cursive; /* Fonte icônica */
+  font-size: 1.8rem;
   color: var(--primary-color);
-  font-weight: 700;
+  font-weight: 400; /* Pacifico já tem estilo, ajuste conforme necessário */
+  position: absolute;
+  left: 30px;
 }
 
 .navbar-menu {
   list-style: none;
   display: flex;
+  gap: 30px;
 }
 
 .navbar-menu li {
-  margin-left: 30px;
+  /* Centralizado */
 }
 
 .navbar-menu a {
@@ -73,11 +77,11 @@ body {
   background-color: var(--button-color);
   color: var(--button-text-color);
   border: none;
-  padding: 10px 25px;
+  padding: 12px 30px; /* Maior tamanho */
   border-radius: 30px;
   cursor: pointer;
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1rem;
   transition: background-color var(--transition-speed);
 }
 
@@ -188,24 +192,12 @@ body {
 .content-header h1 {
   font-family: 'Manrope', sans-serif;
   font-size: 1.8rem;
-  color: var(--text-color);
+  color: var(--primary-color); /* Azul para o título */
   font-weight: 700;
 }
 
 .content-header .button-primary {
-  background-color: var(--button-color);
-  color: var(--button-text-color);
-  border: none;
-  padding: 10px 25px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: background-color var(--transition-speed);
-}
-
-.content-header .button-primary:hover {
-  background-color: var(--secondary-color);
+  /* Já definido anteriormente */
 }
 
 /* Lista de Funcionalidades */
@@ -265,11 +257,11 @@ body {
 }
 
 .status-button.incomplete {
-  background-color: #ffc107; /* Amarelo */
+  background-color: #dc3545; /* Vermelho */
 }
 
-.status-button.validation {
-  background-color: #dc3545; /* Vermelho */
+.status-button.pending {
+  background-color: #fd7e14; /* Laranja */
 }
 
 .card .status-item {
@@ -344,15 +336,16 @@ body {
 
 /* Estado Ativo do Menu Lateral */
 .step.active a {
-  background-color: var(--button-color);
+  background-color: rgba(255, 255, 255, 0.2); /* Fundo azul claro */
+  color: #0d6efd; /* Azul escuro */
 }
 
 .step.active a i {
-  color: var(--button-text-color);
+  color: #0d6efd; /* Azul escuro */
 }
 
 .step.active a .menu-text {
-  color: var(--button-text-color);
+  color: #0d6efd; /* Azul escuro */
 }
 
 /* Remover sublinhado de todos os links */
