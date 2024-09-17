@@ -46,7 +46,7 @@ body {
   font-family: 'Pacifico', cursive; /* Fonte icônica */
   font-size: 1.8rem;
   color: var(--primary-color);
-  font-weight: 400; /* Pacifico já tem estilo, ajuste conforme necessário */
+  font-weight: 400; /* Pacifico já possui estilo */
   position: absolute;
   left: 30px;
 }
@@ -81,7 +81,7 @@ body {
   border-radius: 30px;
   cursor: pointer;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1rem; /* Maior fonte */
   transition: background-color var(--transition-speed);
 }
 
@@ -264,6 +264,10 @@ body {
   background-color: #fd7e14; /* Laranja */
 }
 
+.status-button.pending:hover {
+  background-color: #e07b13; /* Laranja mais escuro no hover */
+}
+
 .card .status-item {
   font-size: 0.95rem;
   color: #555555; /* Contraste entre textos */
@@ -365,4 +369,6 @@ a {
 
 .sidebar.collapsed .step a i {
   margin-right: 0;
+  text-align: center;
+  width: 100%;
 }
