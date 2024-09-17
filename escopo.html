@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Definição de Escopo do Projeto</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Links para as fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Link para o arquivo CSS renomeado -->
+  <link rel="stylesheet" href="styles_escopo.css">
+</head>
+<body>
+
+  <!-- Menu Superior -->
+  <nav class="navbar">
+    <div class="navbar-logo">Prototipaí</div>
+    <ul class="navbar-menu">
+      <li><a href="#">Início</a></li>
+      <li><a href="#">Projetos</a></li>
+      <li><a href="#">Configurações</a></li>
+    </ul>
+  </nav>
+
+  <!-- Container Principal -->
+  <div class="main-container">
+    <!-- Menu Lateral Passo a Passo -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <button class="toggle-sidebar"><i class="fas fa-bars"></i></button>
+      </div>
+      <ul class="step-menu">
+        <li class="step active">
+          <a href="/escopo">
+            <i class="fas fa-scroll"></i>
+            <span class="menu-text">Escopo</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="/requisitos">
+            <i class="fas fa-list-alt"></i>
+            <span class="menu-text">Requisitos</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="/user_stories">
+            <i class="fas fa-user-friends"></i>
+            <span class="menu-text">User Stories</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="/prompts">
+            <i class="fas fa-robot"></i>
+            <span class="menu-text">Prompts</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="/deploy">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span class="menu-text">Deploy</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="content">
+      <!-- Título e Botão na mesma linha -->
+      <div class="content-header">
+        <h1>Definição de Escopo do Projeto</h1>
+        <button class="button-primary">Gerar Escopo do Projeto</button>
+      </div>
+
+      <!-- Lista de Funcionalidades -->
+      <section class="functionalities-section">
+        <ul class="functionalities-list">
+          <!-- Item 1 -->
+          <li class="card">
+            <div class="card-header">
+              <h2>1. Interface do Blog</h2>
+              <button class="status-button confirmed">Requisito Confirmado</button>
+            </div>
+            <p class="status-item"><strong>Status do Item:</strong> Cliente deseja a funcionalidade.</p>
+            <p class="description">Interface visual com CTAs dinâmicas adaptáveis ao conteúdo específico, otimizadas para SEO e lead growth.</p>
+          </li>
+
+          <!-- Item 2 -->
+          <li class="card">
+            <div class="card-header">
+              <h2>2. Geração Automática de Jobs to be Done por IA</h2>
+              <button class="status-button incomplete">Completar Informações</button>
+            </div>
+            <p class="status-item"><strong>Status do Item:</strong> Cliente ainda tem dúvidas.</p>
+            <p class="description">IA para geração automática de jobs to be done com base em temas fornecidos, evitando temas sem volume de busca.</p>
+          </li>
+
+          <!-- Item 3 -->
+          <li class="card">
+            <div class="card-header">
+              <h2>3. Geração de Conteúdo Automático</h2>
+              <button class="status-button validation">Requer Validação</button>
+            </div>
+            <p class="status-item"><strong>Status do Item:</strong> Cliente deseja a funcionalidade.</p>
+            <p class="description">Sistema de inserção baseado em “jobs to be done” que gera título, URL amigável, description, labels e conteúdo do blog.</p>
+          </li>
+
+          <!-- Item 4 -->
+          <li class="card">
+            <div class="card-header">
+              <h2>4. Agendamentos de Publicação</h2>
+              <button class="status-button confirmed">Requisito Confirmado</button>
+            </div>
+            <p class="status-item"><strong>Status do Item:</strong> Cliente deseja a funcionalidade.</p>
+            <p class="description">Sistema que permite agendamentos de publicações diárias automáticas para evitar detecção de conteúdo em massa pelo Google.</p>
+          </li>
+
+          <!-- Item 5 -->
+          <li class="card">
+            <div class="card-header">
+              <h2>5. Geração de CTAs Contextuais</h2>
+              <button class="status-button validation">Requer Validação</button>
+            </div>
+            <p class="status-item"><strong>Status do Item:</strong> Cliente deseja a funcionalidade.</p>
+            <p class="description">CTAs específicas e flexíveis para cada post, alinhadas com o tema do conteúdo.</p>
+          </li>
+
+          <!-- Item 6 -->
+          <li class="card">
+            <div class="card-header">
+              <h2>6. Integração com APIs para Palavras-Chave</h2>
+              <button class="status-button confirmed">Requisito Confirmado</button>
+            </div>
+            <p class="status-item"><strong>Status do Item:</strong> Cliente deseja a funcionalidade.</p>
+            <p class="description">Integração com API do Google Ads (ou similar) para pesquisa e validação de palavras-chave de cauda longa com volume de buscas.</p>
+          </li>
+
+          <!-- Item 7 -->
+          <li class="card">
+            <div class="card-header">
+              <h2>7. Geração de Conteúdo com Regras de SEO</h2>
+              <button class="status-button confirmed">Requisito Confirmado</button>
+            </div>
+            <p class="status-item"><strong>Status do Item:</strong> Cliente deseja a funcionalidade.</p>
+            <p class="description">Conteúdo deve seguir regras de SEO específicas fornecidas pelo cliente.</p>
+          </li>
+
+          <!-- Item 8 -->
+          <li class="card">
+            <div class="card-header">
+              <h2>8. Edição e Revisão Manual</h2>
+              <button class="status-button confirmed">Requisito Confirmado</button>
+            </div>
+            <p class="status-item"><strong>Status do Item:</strong> Cliente deseja a funcionalidade.</p>
+            <p class="description">Postagens devem ser passíveis de edição manual pelo cliente.</p>
+          </li>
+
+          <!-- Item 9 -->
+          <li class="card">
+            <div class="card-header">
+              <h2>9. Prioridade na Geração de Conteúdo</h2>
+              <button class="status-button confirmed">Requisito Confirmado</button>
+            </div>
+            <p class="status-item"><strong>Status do Item:</strong> Cliente deseja a funcionalidade.</p>
+            <p class="description">Priorizar sempre jobs to be done inseridos manualmente pelo cliente em relação aos gerados automaticamente.</p>
+          </li>
+        </ul>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleSidebarBtn = document.querySelector('.toggle-sidebar');
+      const sidebar = document.querySelector('.sidebar');
+
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* Importação das fontes */
+/* Importação das Fontes */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&display=swap');
 
 /* Definição das Cores */
@@ -10,6 +10,10 @@
   --text-color: #333333; /* Texto principal */
   --button-color: #216fc8; /* Cor dos botões */
   --button-text-color: #FFFFFF; /* Texto dos botões */
+  --sidebar-bg: #f0f4ff; /* Fundo delicado para o sidebar */
+  --sidebar-text-color: #6c757d; /* Tom bacana de cinza para textos do sidebar */
+  --navbar-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para o navbar */
+  --transition-speed: 0.3s; /* Velocidade das transições */
 }
 
 /* Reset CSS */
@@ -26,15 +30,16 @@ body {
   color: var(--text-color);
 }
 
-/* Menu Superior */
+/* Menu Superior com Relevo */
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--card-background);
+  background-color: var(--background-white);
   padding: 15px 30px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  box-shadow: var(--navbar-shadow);
   position: relative;
+  z-index: 1000;
 }
 
 .navbar-logo {
@@ -56,12 +61,15 @@ body {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+.navbar-menu a:hover {
+  color: var(--primary-color);
 }
 
 /* Botão Gerar Escopo do Projeto */
 .button-primary {
-  position: absolute;
-  right: 30px;
   background-color: var(--button-color);
   color: var(--button-text-color);
   border: none;
@@ -70,6 +78,7 @@ body {
   cursor: pointer;
   font-weight: 500;
   font-size: 0.9rem;
+  transition: background-color var(--transition-speed);
 }
 
 .button-primary:hover {
@@ -84,15 +93,41 @@ body {
 
 /* Menu Lateral */
 .sidebar {
-  width: 200px;
-  background-color: var(--card-background);
+  width: 250px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text-color);
   padding: 30px 15px;
   border-right: 1px solid #E0E0E0;
+  transition: width var(--transition-speed);
+  position: relative;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.toggle-sidebar {
+  background: none;
+  border: none;
+  color: var(--sidebar-text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color var(--transition-speed);
+}
+
+.toggle-sidebar:hover {
+  color: var(--primary-color);
 }
 
 .step-menu {
   list-style: none;
-  margin-top: 20px; /* Adicionado para baixar o início do texto */
+  margin-top: 20px;
 }
 
 .step {
@@ -100,34 +135,44 @@ body {
   align-items: center;
   margin-bottom: 25px;
   cursor: pointer;
+  transition: color var(--transition-speed);
 }
 
 .step .circle {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background-color: #E0E0E0;
+  background-color: var(--button-color);
   color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-right: 15px;
-  font-weight: 500;
+  font-size: 1rem;
+  transition: background-color var(--transition-speed);
 }
 
 .step.active .circle {
   background-color: var(--primary-color);
 }
 
-.step span {
-  font-size: 1rem;
-  color: var(--text-color);
+.menu-text {
+  font-size: 0.9rem;
+  color: var(--sidebar-text-color);
+  transition: opacity var(--transition-speed);
+}
+
+.sidebar.collapsed .menu-text {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Área de Conteúdo */
 .content {
   flex: 1;
   padding: 40px 60px;
+  background-color: var(--background-color);
+  transition: padding var(--transition-speed);
 }
 
 .content h1 {
@@ -151,7 +196,13 @@ body {
   padding: 20px 25px;
   margin-bottom: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.card:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
 }
 
 .card-header {
@@ -163,9 +214,14 @@ body {
 
 .card-header h2 {
   font-family: 'Manrope', sans-serif;
-  font-size: 1.2rem; /* Reduzido para diminuir o peso visual */
+  font-size: 1.2rem;
   color: var(--text-color);
-  font-weight: 500; /* Reduzido o peso da fonte */
+  font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+.card-header h2:hover {
+  color: var(--primary-color);
 }
 
 .status-button {
@@ -176,9 +232,9 @@ body {
   font-weight: 500;
   cursor: pointer;
   font-size: 0.9rem;
+  transition: background-color var(--transition-speed);
 }
 
-/* Estilos para os Botões de Status */
 .status-button.confirmed {
   background-color: #28a745; /* Verde */
 }
@@ -212,6 +268,19 @@ body {
     width: 100%;
     border-right: none;
     border-bottom: 1px solid #E0E0E0;
+    padding: 20px 15px;
+  }
+
+  .sidebar.collapsed {
+    width: 100%;
+  }
+
+  .toggle-sidebar {
+    display: none;
+  }
+
+  .menu-text {
+    display: block;
   }
 
   .content {
@@ -231,5 +300,10 @@ body {
     margin-top: 10px;
     width: 100%;
     text-align: center;
+  }
+
+  .sidebar.collapsed .menu-text {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
