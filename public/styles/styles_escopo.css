@@ -341,11 +341,11 @@ body {
 }
 
 .step.active a i {
-  color: #0d6efd; /* Azul escuro */
+  color: #FFFFFF; /* Azul escuro */
 }
 
 .step.active a .menu-text {
-  color: #0d6efd; /* Azul escuro */
+  color: #FFFFFF; /* Azul escuro */
 }
 
 /* Remover sublinhado de todos os links */
