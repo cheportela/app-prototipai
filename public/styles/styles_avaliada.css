@@ -8,7 +8,7 @@
   --background-color: #F7F8FA;
   --card-background: #FFFFFF;
   --text-color: #333333;
-  --button-color: #2d7cd2;
+  --button-color: #2d7cd2; /* Azul petróleo mais forte */
   --button-text-color: #FFFFFF;
   --sidebar-bg: #2d7cd2;
   --sidebar-text-color: #FFFFFF;
@@ -185,7 +185,7 @@ body {
   margin-bottom: 5px;
 }
 
-/* Cards */
+/* Seção de Esclarecimentos */
 .clarification-section .card {
   background-color: var(--card-background);
   padding: 15px 20px;
@@ -193,7 +193,6 @@ body {
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   transition: box-shadow var(--transition-speed), transform var(--transition-speed);
-  text-align: center;
 }
 
 .clarification-section .card:hover {
@@ -208,17 +207,82 @@ body {
   margin-bottom: 15px;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
-.green-icon {
-  color: #28a745;
+.blue-icon {
+  color: #007bff;
   margin-right: 8px;
 }
 
-.message .small-icon {
-  font-size: 2.5rem;
-  color: #28a745;
+.orange-icon {
+  color: #fd7e14;
+  margin-right: 8px;
+}
+
+.green-check-icon {
+  color: #28a745; /* Verde */
+  margin-right: 8px;
+}
+
+.contradictions-text {
+  color: #6c757d; /* Cinza */
+  text-align: center;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+/* Campo de Texto */
+.input-container {
+  margin: 15px 0;
+}
+
+/* Estilização do Campo de Texto */
+.input-container textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Estilização do Campo de Texto ao Focar */
+.input-container textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+/* Botão de Ação */
+.action-buttons {
+  text-align: right;
+  margin-top: 20px;
+}
+
+/* Botão "Enviar Informações" */
+.button-primary {
+  background-color: var(--button-color); /* #2d7cd2 */
+  color: var(--button-text-color); /* #FFFFFF */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Efeito Hover para o Botão */
+.button-primary:hover {
+  background-color: #1a5fa8; /* Um tom mais escuro de azul petróleo */
+}
+
+/* Estilização das Imagens de Ilustração */
+.clarification-section .card img {
+  display: block;
+  margin: 0 auto;
+  width: 120px;
+  height: 100px;
 }
 
 /* Responsividade */
