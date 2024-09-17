@@ -1,0 +1,113 @@
+/* Importação das Fontes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&family=Pacifico&display=swap');
+
+/* Definição das Cores */
+:root {
+  --primary-color: #216fc8;
+  --secondary-color: #1A5FA8;
+  --background-color: #F7F8FA;
+  --card-background: #FFFFFF;
+  --text-color: #333333;
+  --button-color: #2d7cd2;
+  --button-text-color: #FFFFFF;
+  --sidebar-bg: #2d7cd2;
+  --sidebar-text-color: #FFFFFF;
+  --navbar-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --transition-speed: 0.3s;
+}
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos do Body */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Menu Superior */
+.navbar {
+  /* ... same as before ... */
+}
+
+/* Sidebar */
+.sidebar {
+  /* ... same as before ... */
+}
+
+/* Content Area */
+.content {
+  flex: 1;
+  padding: 40px 60px;
+  background-color: var(--background-color);
+  transition: padding var(--transition-speed);
+}
+
+.content-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.content-header h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.project-info {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-top: 10px;
+}
+
+.project-info p {
+  margin-bottom: 5px;
+}
+
+/* Cards */
+.clarification-section .card {
+  background-color: var(--card-background);
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+  text-align: center;
+}
+
+.clarification-section .card:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.clarification-section h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.green-icon {
+  color: #28a745;
+  margin-right: 8px;
+}
+
+.message .small-icon {
+  font-size: 2.5rem;
+  color: #28a745;
+}
+
+/* Responsive adjustments */
+/* ... same as before ... */
+

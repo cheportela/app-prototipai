@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Integração com APIs para Palavras-Chave - Detalhes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Links para as fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&family=Pacifico&display=swap" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Link para o arquivo CSS -->
+  <link rel="stylesheet" href="styles/styles_avaliada.css">
+
+</head>
+<body>
+
+  <!-- Menu Superior -->
+  <nav class="navbar">
+    <div class="navbar-logo">Prototipaí</div>
+    <ul class="navbar-menu">
+      <li><a href="inicio.html">Início</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="configuracoes.html">Configurações</a></li>
+    </ul>
+  </nav>
+
+  <!-- Container Principal -->
+  <div class="main-container">
+    <!-- Menu Lateral Passo a Passo -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <button class="toggle-sidebar"><i class="fas fa-bars"></i></button>
+      </div>
+      <ul class="step-menu">
+        <li class="step">
+          <a href="index.html">
+            <i class="fas fa-bullseye"></i>
+            <span class="menu-text">Escopo</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="requisitos.html">
+            <i class="fas fa-list-alt"></i>
+            <span class="menu-text">Requisitos</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="user_story.html">
+            <i class="fas fa-book-open"></i>
+            <span class="menu-text">User Stories</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="prompts.html">
+            <i class="fas fa-robot"></i>
+            <span class="menu-text">Prompts</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="deploy.html">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span class="menu-text">Deploy</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="content">
+      <!-- Título e Informações -->
+      <div class="content-header">
+        <h1>Integração com APIs para Palavras-Chave</h1>
+        <div class="project-info">
+          <p><strong>Projeto:</strong> Nome do Projeto</p>
+          <p><strong>Requisito:</strong> Integração com APIs para Palavras-Chave</p>
+        </div>
+      </div>
+
+      <!-- Cards -->
+      <section class="clarification-section">
+        <!-- Card de Contradições -->
+        <div class="card">
+          <h2><i class="fas fa-check-circle green-icon"></i> Contradições</h2>
+          <div class="message">
+            <i class="fas fa-leaf small-icon green-icon"></i>
+          </div>
+        </div>
+
+        <!-- Card de Pontos a Esclarecer -->
+        <div class="card">
+          <h2><i class="fas fa-check-circle green-icon"></i> Pontos a Esclarecer</h2>
+          <div class="message">
+            <i class="fas fa-leaf small-icon green-icon"></i>
+          </div>
+        </div>
+
+        <!-- Roteiro de Perguntas -->
+        <div class="card">
+          <h2><i class="fas fa-check-circle green-icon"></i> Roteiro de Perguntas</h2>
+          <div class="message">
+            <i class="fas fa-leaf small-icon green-icon"></i>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleSidebarBtn = document.querySelector('.toggle-sidebar');
+      const sidebar = document.querySelector('.sidebar');
+
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+      });
+    });
+  </script>
+
+</body>
+</html>

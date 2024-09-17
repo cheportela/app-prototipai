@@ -3,35 +3,23 @@
 # Navigate to the public directory
 cd ~/Projetos/app-prototipai/public
 
-# Remove existing Avaliada files if they exist
-rm -f avaliada1.html avaliada4.html avaliada6.html avaliada7.html avaliada8.html avaliada9.html
-rm -f styles/styles_avaliada.css
+# Remove existing files if they exist
+rm -f roteiro.html styles/styles_roteiro.css
 
-# Create an array of item numbers and titles
-declare -A items=(
-  [1]="Interface do Blog"
-  [4]="Agendamentos de Publicação"
-  [6]="Integração com APIs para Palavras-Chave"
-  [7]="Geração de Conteúdo com Regras de SEO"
-  [8]="Edição e Revisão Manual"
-  [9]="Prioridade na Geração de Conteúdo"
-)
-
-# Loop through the items and create HTML files
-for i in 1 4 6 7 8 9; do
-cat << EOF > "avaliada${i}.html"
+# Create roteiro.html
+cat << 'EOF' > roteiro.html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>${items[$i]} - Detalhes</title>
+  <title>Roteiro de Esclarecimentos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Links para as fontes -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&family=Pacifico&display=swap" rel="stylesheet">
   <!-- Font Awesome CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
   <!-- Link para o arquivo CSS -->
-  <link rel="stylesheet" href="styles/styles_avaliada.css">
+  <link rel="stylesheet" href="styles/styles_roteiro.css">
 
 </head>
 <body>
@@ -91,37 +79,53 @@ cat << EOF > "avaliada${i}.html"
     <main class="content">
       <!-- Título e Informações -->
       <div class="content-header">
-        <h1>${items[$i]}</h1>
+        <h1>Geração Automática de Jobs to be Done por IA</h1>
         <div class="project-info">
           <p><strong>Projeto:</strong> Nome do Projeto</p>
-          <p><strong>Requisito:</strong> ${items[$i]}</p>
+          <p><strong>Requisito:</strong> Geração Automática de Jobs to be Done por IA</p>
         </div>
       </div>
 
-      <!-- Cards de Confirmação -->
+      <!-- Cards de Contradições e Pontos a Esclarecer -->
       <section class="clarification-section">
-        <!-- Card de Contradições Resolvidas -->
+        <!-- Card de Contradições -->
         <div class="card">
-          <h2><i class="fas fa-check-circle green-icon"></i> Contradições</h2>
-          <div class="message">
-            <p>Todas as contradições foram resolvidas. Nada a declarar!</p>
-          </div>
+          <h2><i class="fas fa-exclamation-triangle red-icon"></i> Contradições</h2>
+          <ul>
+            <li>
+              Em um momento foi mencionado que a IA deve gerar JTBD a partir de termos de cauda longa, mas em outro momento foi dito que os termos de cauda longa já são os JTBD. Precisamos esclarecer este ponto.
+            </li>
+            <li>
+              Foi dito que não seria necessária revisão humana dos JTBD gerados pela IA, mas em outro momento foi sugerido que uma revisão manual poderia ser necessária. Isto impacta o fluxo e o esforço de desenvolvimento.
+            </li>
+          </ul>
         </div>
 
-        <!-- Card de Pontos Esclarecidos -->
+        <!-- Card de Pontos a Esclarecer -->
         <div class="card">
-          <h2><i class="fas fa-check-circle green-icon"></i> Pontos a Esclarecer</h2>
-          <div class="message">
-            <p>Todos os pontos foram esclarecidos. Tudo em ordem!</p>
-          </div>
+          <h2><i class="fas fa-question-circle orange-icon"></i> Pontos a Esclarecer</h2>
+          <ul>
+            <li>
+              A IA deve implementar alguma lógica de revisão automática dos JTBD gerados?
+            </li>
+            <li>
+              Qual é o nível de integração necessário com APIs externas para a geração dos JTBD?
+            </li>
+            <li>
+              Há necessidade de um processo manual no frontend para edição dos JTBD antes da publicação?
+            </li>
+          </ul>
         </div>
 
-        <!-- Card de Roteiro Concluído -->
+        <!-- Roteiro de Perguntas -->
         <div class="card">
-          <h2><i class="fas fa-check-circle green-icon"></i> Roteiro de Perguntas</h2>
-          <div class="message">
-            <p>Não há mais perguntas a serem feitas. Vamos em frente!</p>
-          </div>
+          <h2><i class="fas fa-list blue-icon"></i> Roteiro de Perguntas</h2>
+          <ol>
+            <li>Como os JTBD serão utilizados dentro do sistema?</li>
+            <li>Qual é a fonte dos termos de cauda longa? Eles são fornecidos ou gerados?</li>
+            <li>Existe preferência por alguma tecnologia ou linguagem para a implementação da IA?</li>
+            <!-- Adicione mais perguntas conforme necessário -->
+          </ol>
         </div>
       </section>
 
@@ -144,10 +148,9 @@ cat << EOF > "avaliada${i}.html"
 </body>
 </html>
 EOF
-done
 
-# Create styles/styles_avaliada.css
-cat << 'EOF' > styles/styles_avaliada.css
+# Create styles/styles_roteiro.css
+cat << 'EOF' > styles/styles_roteiro.css
 /* Importação das Fontes */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&family=Pacifico&display=swap');
 
@@ -335,15 +338,14 @@ body {
   margin-bottom: 5px;
 }
 
-/* Seção de Confirmação */
+/* Seção de Esclarecimentos */
 .clarification-section .card {
   background-color: var(--card-background);
-  padding: 20px;
+  padding: 15px 20px;
   margin-bottom: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   transition: box-shadow var(--transition-speed), transform var(--transition-speed);
-  text-align: center;
 }
 
 .clarification-section .card:hover {
@@ -353,23 +355,35 @@ body {
 
 .clarification-section h2 {
   font-family: 'Manrope', sans-serif;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: var(--primary-color);
   margin-bottom: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.clarification-section .message p {
-  font-size: 1.1rem;
-  color: #4CAF50; /* Green color for positive messages */
-  font-weight: 500;
+.clarification-section ul, .clarification-section ol {
+  margin-left: 20px;
 }
 
-.green-icon {
-  color: #4CAF50;
-  margin-right: 10px;
+.clarification-section li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+/* Icon Colors */
+.red-icon {
+  color: #dc3545;
+  margin-right: 8px;
+}
+
+.orange-icon {
+  color: #fd7e14;
+  margin-right: 8px;
+}
+
+.blue-icon {
+  color: #007bff;
+  margin-right: 8px;
 }
 
 /* Responsividade */
@@ -442,4 +456,4 @@ a {
 }
 EOF
 
-echo "All Avaliada HTML pages and styles/styles_avaliada.css have been created successfully."
+echo "Files roteiro.html and styles/styles_roteiro.css have been updated successfully."
