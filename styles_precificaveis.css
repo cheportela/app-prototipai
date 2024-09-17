@@ -1,0 +1,235 @@
+/* Importação das fontes */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&display=swap');
+
+/* Definição das Cores */
+:root {
+  --primary-color: #216fc8; /* Azul mais forte */
+  --secondary-color: #1A5FA8; /* Azul complementar */
+  --background-color: #F7F8FA; /* Fundo claro */
+  --card-background: #FFFFFF; /* Fundo dos cards */
+  --text-color: #333333; /* Texto principal */
+  --button-color: #216fc8; /* Cor dos botões */
+  --button-text-color: #FFFFFF; /* Texto dos botões */
+}
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos do Body */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Menu Superior */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--card-background);
+  padding: 15px 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+}
+
+.navbar-menu li {
+  margin-left: 30px;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* Botão Gerar Escopo do Projeto */
+.button-primary {
+  position: absolute;
+  right: 30px;
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.button-primary:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Container Principal */
+.main-container {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+/* Menu Lateral */
+.sidebar {
+  width: 200px;
+  background-color: var(--card-background);
+  padding: 30px 15px;
+  border-right: 1px solid #E0E0E0;
+}
+
+.step-menu {
+  list-style: none;
+  margin-top: 20px; /* Adicionado para baixar o início do texto */
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.step .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #E0E0E0;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  font-weight: 500;
+}
+
+.step.active .circle {
+  background-color: var(--primary-color);
+}
+
+.step span {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* Área de Conteúdo */
+.content {
+  flex: 1;
+  padding: 40px 60px;
+}
+
+.content h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  color: var(--primary-color);
+}
+
+/* Lista de Funcionalidades */
+.functionalities-section {
+  width: 100%;
+}
+
+.functionalities-list {
+  list-style: none;
+}
+
+.card {
+  background-color: var(--card-background);
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-header h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.2rem; /* Reduzido para diminuir o peso visual */
+  color: var(--text-color);
+  font-weight: 500; /* Reduzido o peso da fonte */
+}
+
+.status-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  color: var(--button-text-color);
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* Estilos para os Botões de Status */
+.status-button.confirmed {
+  background-color: #28a745; /* Verde */
+}
+
+.status-button.incomplete {
+  background-color: #ffc107; /* Amarelo */
+}
+
+.status-button.validation {
+  background-color: #dc3545; /* Vermelho */
+}
+
+.card .status-item {
+  font-size: 0.95rem;
+  color: #555555; /* Contraste entre textos */
+  margin-bottom: 5px;
+}
+
+.card .description {
+  font-size: 1rem;
+  color: #777777; /* Contraste entre textos */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #E0E0E0;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .card-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .status-button {
+    font-size: 0.8rem;
+  }
+
+  .button-primary {
+    position: static;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+}

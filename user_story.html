@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórias de Usuário</title>
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="user_story.css">
+    <!-- Importação da fonte Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Slide: Histórias de Usuário -->
+    <div class="slide" id="slide-user-stories">
+      <h1 class="user-stories-header">Histórias de Usuário</h1>
+      <ul class="user-stories-list">
+        <!-- User Story 1 -->
+        <li>
+          <div class="user-story-header">
+            <span>User Story 1: Cadastro de Job to Be Done</span>
+            <div>
+              <button class="status-button approved">Aprovado</button>
+              <button class="toggle-button">Detalhes</button>
+            </div>
+          </div>
+          <div class="user-story-content" style="display: none;">
+            <!-- Conteúdo da User Story 1 -->
+            <p><strong>User Story:</strong></p>
+            <p>
+              COMO gerente de produto, QUERO cadastrar jobs to be done diretamente no sistema, PARA que a IA possa gerar conteúdo relevante de blog a partir desses jobs.
+            </p>
+            <p><strong>Cenário:</strong> Novo job to be done sendo cadastrado</p>
+            <p><strong>DADO:</strong> que o gerente de produto acessa a funcionalidade de cadastrar job to be done</p>
+            <p><strong>E:</strong> insere as informações do job to be done</p>
+            <p><strong>QUANDO:</strong> submeter o formulário</p>
+            <p><strong>ENTÃO:</strong> o sistema deve armazenar o job to be done na lista de termos cauda longa</p>
+            <p><strong>E:</strong> preparar para a geração automática de conteúdo.</p>
+            <p><strong>Critérios de Aceite:</strong></p>
+            <ol>
+              <li>Deve permitir o cadastro de título e descrição do job to be done.</li>
+              <li>Deve validar se o título do job to be done é único.</li>
+              <li>Deve permitir a edição e exclusão dos jobs to be done cadastrados.</li>
+            </ol>
+            <p><strong>Cenários de Teste:</strong></p>
+            <ol>
+              <li>
+                <strong>Cenário 1</strong><br>
+                <strong>DADO:</strong> que estou na tela de cadastro de job to be done<br>
+                <strong>E:</strong> insiro título e descrição<br>
+                <strong>QUANDO:</strong> submeto o formulário<br>
+                <strong>ENTÃO:</strong> o job to be done deve ser salvo com sucesso e aparecer na lista de termos cauda longa.
+              </li>
+              <li>
+                <strong>Cenário 2</strong><br>
+                <strong>DADO:</strong> que tento cadastrar um job to be done com título duplicado<br>
+                <strong>QUANDO:</strong> submeto o formulário<br>
+                <strong>ENTÃO:</strong> uma mensagem de erro de duplicidade deve ser exibida.
+              </li>
+              <li>
+                <strong>Cenário 3</strong><br>
+                <strong>DADO:</strong> que desejo editar um job to be done<br>
+                <strong>QUANDO:</strong> acesso a opção de edição<br>
+                <strong>ENTÃO:</strong> devo conseguir atualizar o título e descrição e salvar as alterações.
+              </li>
+              <li>
+                <strong>Cenário 4</strong><br>
+                <strong>DADO:</strong> que desejo apagar um job to be done<br>
+                <strong>QUANDO:</strong> acesso a opção de exclusão<br>
+                <strong>ENTÃO:</strong> o job to be done deve ser removido da lista.
+              </li>
+            </ol>
+            <p><strong>Classificação MoSCoW:</strong></p>
+            <ul>
+              <li><strong>MUST:</strong> Critérios 1, 2</li>
+              <li><strong>SHOULD:</strong> Critério 3</li>
+              <li><strong>COULD:</strong> -</li>
+              <li><strong>WON'T:</strong> -</li>
+            </ul>
+            <!-- Botão para copiar o conteúdo -->
+            <button class="copy-button" onclick="copyContent(this)">Copiar Conteúdo</button>
+          </div>
+        </li>
+
+        <!-- User Story 2 -->
+        <li>
+          <div class="user-story-header">
+            <span>User Story 2: Geração Automática de Conteúdo</span>
+            <div>
+              <button class="status-button requires-info">Completar</button>
+              <button class="edit-button">Pendências</button>
+              <button class="toggle-button" disabled>Detalhes</button>
+            </div>
+          </div>
+          <div class="user-story-content" style="display: none;">
+            <!-- Conteúdo da User Story 2 -->
+            <p><strong>User Story:</strong></p>
+            <p>
+              COMO gerente de produto, QUERO que a IA gere automaticamente o conteúdo do blog a partir dos jobs to be done cadastrados, PARA escalar a produção de conteúdo de forma eficiente e coerente com as regras de SEO.
+            </p>
+            <p><strong>Cenário:</strong> Geração de conteúdo a partir de job to be done</p>
+            <p><strong>DADO:</strong> que há jobs to be done cadastrados na lista de termos cauda longa<br>
+            <strong>E:</strong> a IA está configurada com regras de SEO e formatos de conteúdo</p>
+            <p><strong>QUANDO:</strong> é o momento programado para geração de conteúdo (por exemplo, duas vezes por dia)</p>
+            <p><strong>ENTÃO:</strong> a IA deve gerar o conteúdo do blog<br>
+            <strong>E:</strong> publicar conforme configuração de agendamento.</p>
+            <p><strong>Critérios de Aceite:</strong></p>
+            <ol>
+              <li>Deve permitir a configuração de regras de SEO (posição de cauda longa no texto, descrição, etc.).</li>
+              <li>Deve permitir a escolha do formato de conteúdo (listas, ferramentas, dicas, etc.).</li>
+              <li>Deve gerar e publicar automaticamente duas postagens por dia, uma de manhã e uma à tarde.</li>
+              <li>Deve possibilitar a inclusão de CTAs dinâmicos alinhados ao conteúdo gerado.</li>
+              <li>Deve permitir revisão e edição manual das postagens antes da publicação.</li>
+            </ol>
+            <p><strong>Cenários de Teste:</strong></p>
+            <ol>
+              <li>
+                <strong>Cenário 1</strong><br>
+                <strong>DADO:</strong> que estou com um job to be done cadastrado<br>
+                <strong>QUANDO:</strong> chega o horário agendado<br>
+                <strong>ENTÃO:</strong> a IA deve gerar um conteúdo de blog cumprindo todas as regras de SEO.
+              </li>
+              <li>
+                <strong>Cenário 2</strong><br>
+                <strong>DADO:</strong> que escolho o formato de conteúdo "listas"<br>
+                <strong>QUANDO:</strong> a IA gera o conteúdo<br>
+                <strong>ENTÃO:</strong> ele deve seguir o formato especificado.
+              </li>
+              <li>
+                <strong>Cenário 3</strong><br>
+                <strong>DADO:</strong> que configuro a geração de conteúdo para duas postagens por dia<br>
+                <strong>QUANDO:</strong> a IA publica o conteúdo<br>
+                <strong>ENTÃO:</strong> deve haver uma postagem publicada de manhã e uma à tarde.
+              </li>
+              <li>
+                <strong>Cenário 4</strong><br>
+                <strong>DADO:</strong> que o conteúdo gerado possui CTAs<br>
+                <strong>QUANDO:</strong> reviso o conteúdo<br>
+                <strong>ENTÃO:</strong> os CTAs devem estar alinhados ao tema do artigo.
+              </li>
+            </ol>
+            <p><strong>Classificação MoSCoW:</strong></p>
+            <ul>
+              <li><strong>MUST:</strong> Critérios 1, 3</li>
+              <li><strong>SHOULD:</strong> Critérios 2, 4</li>
+              <li><strong>COULD:</strong> Critério 5</li>
+              <li><strong>WON'T:</strong> -</li>
+            </ul>
+            <!-- Botão para copiar o conteúdo -->
+            <button class="copy-button" onclick="copyContent(this)">Copiar Conteúdo</button>
+          </div>
+          <!-- Div para as perguntas que faltam -->
+          <div class="edit-content" style="display: none;">
+            <p><strong>Perguntas Pendentes:</strong></p>
+            <ul>
+              <li>Qual ferramenta específica será usada para as regras de SEO?</li>
+              <li>Precisamos de mais detalhes sobre os formatos que podem ser usados para futuros aprimoramentos.</li>
+            </ul>
+            <!-- Campo de Resposta -->
+            <div class="response-section">
+              <label for="response-2"><strong>Resposta:</strong></label><br>
+              <textarea id="response-2" rows="4" cols="50" placeholder="Digite as respostas das perguntas pendentes..."></textarea><br>
+              <button class="submit-response-button" onclick="submitResponse(this)">Enviar Resposta</button>
+            </div>
+          </div>
+        </li>
+
+        <!-- User Story 3 -->
+        <li>
+          <div class="user-story-header">
+            <span>User Story 3: Integração com API de Palavras-Chave</span>
+            <div>
+              <button class="status-button requires-info">Completar</button>
+              <button class="edit-button">Pendências</button>
+              <button class="toggle-button" disabled>Detalhes</button>
+            </div>
+          </div>
+          <div class="user-story-content" style="display: none;">
+            <!-- Conteúdo da User Story 3 -->
+            <p><strong>User Story:</strong></p>
+            <p>
+              COMO gerente de produto, QUERO integrar a IA com uma API que forneça palavras-chave e seus volumes de busca, PARA que a IA possa gerar jobs to be done e termos cauda longa com relevância baseada em dados reais de busca.
+            </p>
+            <p><strong>Cenário:</strong> Integração com API de pesquisa de palavras-chave</p>
+            <p><strong>DADO:</strong> que tenho uma API configurada com palavras-chave e volumes de busca<br>
+            <strong>E:</strong> a IA está configurada para acessar esta API</p>
+            <p><strong>QUANDO:</strong> executo o planejamento trimestral de SEO</p>
+            <p><strong>ENTÃO:</strong> a IA deve recuperar palavras-chave e volumes de busca<br>
+            <strong>E:</strong> gerar jobs to be done relevantes baseados nesses dados.</p>
+            <p><strong>Critérios de Aceite:</strong></p>
+            <ol>
+              <li>Deve permitir a configuração de uma API para pesquisa de palavras-chave.</li>
+              <li>Deve solicitar palavras-chave a cada ciclo trimestral e recuperar os dados de volume de busca.</li>
+              <li>Deve gerar uma lista de jobs to be done / termos cauda longa com base nas palavras-chave e seus volumes de busca.</li>
+              <li>Deve permitir priorização dos jobs to be done gerados manualmente sobre os gerados automaticamente.</li>
+            </ol>
+            <p><strong>Cenários de Teste:</strong></p>
+            <ol>
+              <li>
+                <strong>Cenário 1</strong><br>
+                <strong>DADO:</strong> que configurei a API de palavras-chave<br>
+                <strong>QUANDO:</strong> executo o planejamento trimestral<br>
+                <strong>ENTÃO:</strong> a IA deve recuperar palavras-chave e volumes de busca e gerar jobs to be done.
+              </li>
+              <li>
+                <strong>Cenário 2</strong><br>
+                <strong>DADO:</strong> que a IA recebe uma palavra-chave com alto volume de busca<br>
+                <strong>QUANDO:</strong> gera o job to be done<br>
+                <strong>ENTÃO:</strong> ele deve ser adicionado à lista de termos cauda longa.
+              </li>
+              <li>
+                <strong>Cenário 3</strong><br>
+                <strong>DADO:</strong> que um job to be done foi adicionado manualmente<br>
+                <strong>QUANDO:</strong> a IA gera conteúdo<br>
+                <strong>ENTÃO:</strong> deve priorizar este job to be done sobre os gerados automaticamente.
+              </li>
+            </ol>
+            <p><strong>Classificação MoSCoW:</strong></p>
+            <ul>
+              <li><strong>MUST:</strong> Critérios 1, 2</li>
+              <li><strong>SHOULD:</strong> Critério 3</li>
+              <li><strong>COULD:</strong> Critério 4</li>
+              <li><strong>WON'T:</strong> -</li>
+            </ul>
+            <!-- Botão para copiar o conteúdo -->
+            <button class="copy-button" onclick="copyContent(this)">Copiar Conteúdo</button>
+          </div>
+          <!-- Div para as perguntas que faltam -->
+          <div class="edit-content" style="display: none;">
+            <p><strong>Perguntas Pendentes:</strong></p>
+            <ul>
+              <li>Qual API específica deverá ser usada para a pesquisa de palavras-chave?</li>
+              <li>Existe uma preferência por API gratuita ou alguma alocação de orçamento está disponível?</li>
+            </ul>
+            <!-- Campo de Resposta -->
+            <div class="response-section">
+              <label for="response-3"><strong>Resposta:</strong></label><br>
+              <textarea id="response-3" rows="4" cols="50" placeholder="Digite as respostas das perguntas pendentes..."></textarea><br>
+              <button class="submit-response-button" onclick="submitResponse(this)">Enviar Resposta</button>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+      <!-- Botão para avançar -->
+      <div class="button-container">
+        <button class="button-green-small" onclick="nextSlide()">Avançar</button>
+      </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Função para expandir/colapsar conteúdo
+        const toggleButtons = document.querySelectorAll('.toggle-button');
+        toggleButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const listItem = button.closest('li');
+            const content = listItem.querySelector('.user-story-content');
+            if (content.style.display === 'none' || content.style.display === '') {
+              content.style.display = 'block';
+              button.textContent = 'Ocultar';
+            } else {
+              content.style.display = 'none';
+              button.textContent = 'Detalhes';
+            }
+          });
+        });
+
+        // Função para mostrar/ocultar perguntas pendentes
+        const editButtons = document.querySelectorAll('.edit-button');
+        editButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const listItem = button.closest('li');
+            const editContent = listItem.querySelector('.edit-content');
+            if (editContent.style.display === 'none' || editContent.style.display === '') {
+              editContent.style.display = 'block';
+              button.textContent = 'Fechar';
+            } else {
+              editContent.style.display = 'none';
+              button.textContent = 'Pendências';
+            }
+          });
+        });
+
+        // Função para copiar o conteúdo formatado
+        function copyContent(button) {
+          const contentElement = button.parentElement;
+          const tempElement = document.createElement('div');
+          tempElement.innerHTML = contentElement.innerHTML;
+
+          // Remove o botão de copiar do conteúdo copiado
+          const copyButton = tempElement.querySelector('.copy-button');
+          if (copyButton) {
+            copyButton.parentElement.removeChild(copyButton);
+          }
+
+          // Cria uma área de texto temporária para copiar o conteúdo
+          const tempTextArea = document.createElement('textarea');
+          tempTextArea.value = tempElement.innerText;
+          document.body.appendChild(tempTextArea);
+          tempTextArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(tempTextArea);
+
+          alert('Conteúdo copiado para a área de transferência!');
+        }
+
+        // Função para enviar a resposta
+        function submitResponse(button) {
+          const listItem = button.closest('li');
+          const responseSection = button.parentElement;
+          const textarea = responseSection.querySelector('textarea');
+          const resposta = textarea.value.trim();
+
+          if (resposta === '') {
+            alert('Por favor, insira uma resposta antes de enviar.');
+            return;
+          }
+
+          // Aqui você pode adicionar lógica para enviar a resposta para um servidor ou processar conforme necessário.
+          // Por enquanto, vamos apenas exibir um alerta de confirmação.
+
+          alert('Sua resposta foi enviada, estamos reprocessando as respostas com as novas informações.');
+
+          // Limpa o campo de texto após o envio
+          textarea.value = '';
+
+          // Habilita o botão "Detalhes"
+          const toggleButton = listItem.querySelector('.toggle-button');
+          toggleButton.disabled = false;
+
+          // Altera a aparência do botão para indicar que está habilitado
+          toggleButton.style.backgroundColor = '#3498db'; // Cor original
+          toggleButton.style.cursor = 'pointer';
+
+          // Esconde a seção de edições
+          const editContent = listItem.querySelector('.edit-content');
+          editContent.style.display = 'none';
+
+          // Atualiza o status button de "Completar" para "Aprovado"
+          const statusButton = listItem.querySelector('.status-button');
+          statusButton.textContent = 'Aprovado';
+          statusButton.classList.remove('requires-info');
+          statusButton.classList.add('approved');
+
+          // Oculta o botão "Pendências"
+          const editButton = listItem.querySelector('.edit-button');
+          editButton.style.display = 'none';
+        }
+
+        // Função placeholder para 'nextSlide'
+        function nextSlide() {
+          alert('Próximo slide!');
+        }
+
+        // Tornar as funções globalmente acessíveis
+        window.copyContent = copyContent;
+        window.nextSlide = nextSlide;
+        window.submitResponse = submitResponse;
+      });
+    </script>
+</body>
+</html>
