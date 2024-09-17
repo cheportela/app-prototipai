@@ -323,41 +323,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Função para carregar conteúdo externo
-            function loadHTML(elementId, url) {
-                fetch(url)
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById(elementId).innerHTML = data;
-
-                        // Re-bind events after loading content
-                        if (url === '/sidebar.html') {
-                            const toggleSidebarBtn = document.querySelector('.toggle-sidebar');
-                            const sidebar = document.querySelector('.sidebar');
-
-                            toggleSidebarBtn.addEventListener('click', () => {
-                                sidebar.classList.toggle('collapsed');
-                            });
-
-                            // Ativar a etapa correta com base na página atual
-                            const currentPage = window.location.pathname.split('/').pop();
-                            const steps = document.querySelectorAll('.step a');
-                            steps.forEach(step => {
-                                if (step.getAttribute('href') === '/' + currentPage) {
-                                    step.parentElement.classList.add('active');
-                                } else {
-                                    step.parentElement.classList.remove('active');
-                                }
-                            });
-                        }
-                    })
-                    .catch(error => console.error('Erro ao carregar ' + url + ':', error));
-            }
-
-            // Carregar Header e Sidebar
-            loadHTML('header', '/header.html');
-            loadHTML('sidebar', '/sidebar.html');
-
             // Função para copiar o conteúdo formatado
             window.copyContent = function(button) {
                 const contentElement = button.parentElement;
@@ -428,7 +393,8 @@
             window.nextSlide = function() {
                 alert('Próximo!');
             };
-        
+
+            // JavaScript para Menu Hamburger
             const menuToggle = document.getElementById('mobile-menu');
             const navbarMenu = document.querySelector('.navbar-menu');
 
@@ -436,7 +402,39 @@
                 navbarMenu.classList.toggle('active');
                 menuToggle.classList.toggle('active');
             });
+
+            // Event Listeners para Botões "Detalhes" e "Pendências"
+            const toggleButtons = document.querySelectorAll('.toggle-button');
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const userStoryContent = button.closest('li').querySelector('.user-story-content');
+                    if (userStoryContent) {
+                        userStoryContent.style.display = userStoryContent.style.display === 'none' ? 'block' : 'none';
+                    }
+                });
+            });
+
+            const editButtons = document.querySelectorAll('.edit-button');
+            editButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const editContent = button.closest('li').querySelector('.edit-content');
+                    if (editContent) {
+                        editContent.style.display = editContent.style.display === 'none' ? 'block' : 'none';
+                    }
+                });
+            });
+
+            // Event Listener para Toggle Sidebar (se necessário)
+            const toggleSidebarBtn = document.querySelector('.toggle-sidebar');
+            const sidebar = document.querySelector('.sidebar');
+
+            if (toggleSidebarBtn && sidebar) {
+                toggleSidebarBtn.addEventListener('click', () => {
+                    sidebar.classList.toggle('collapsed');
+                });
+            }
         });
     </script>
+
 </body>
 </html>
