@@ -32,15 +32,128 @@ body {
 
 /* Menu Superior */
 .navbar {
-  /* ... same as before ... */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-color);
+  padding: 15px 30px;
+  box-shadow: var(--navbar-shadow);
+  position: relative;
+  z-index: 1000;
 }
 
-/* Sidebar */
+.navbar-logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  font-weight: 400;
+  position: absolute;
+  left: 30px;
+}
+
+.navbar-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: color var(--transition-speed);
+}
+
+.navbar-menu a:hover {
+  color: var(--primary-color);
+}
+
+/* Container Principal */
+.main-container {
+  display: flex;
+  min-height: calc(100vh - 70px);
+}
+
+/* Menu Lateral */
 .sidebar {
-  /* ... same as before ... */
+  width: 250px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text-color);
+  padding: 30px 15px;
+  border-right: 1px solid #E0E0E0;
+  transition: width var(--transition-speed);
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Content Area */
+.sidebar.collapsed {
+  width: 70px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.toggle-sidebar {
+  background: none;
+  border: none;
+  color: var(--sidebar-text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color var(--transition-speed);
+}
+
+.toggle-sidebar:hover {
+  color: var(--primary-color);
+}
+
+.step-menu {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  flex-grow: 1;
+}
+
+.step {
+  margin-bottom: 15px;
+}
+
+.step a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--sidebar-text-color);
+  padding: 10px;
+  border-radius: 8px;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.step a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--secondary-color);
+}
+
+.step i {
+  font-size: 1.2rem;
+  width: 25px;
+  text-align: center;
+}
+
+.menu-text {
+  font-size: 0.9rem;
+  margin-left: 10px;
+  transition: opacity var(--transition-speed);
+}
+
+.sidebar.collapsed .menu-text {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Área de Conteúdo */
 .content {
   flex: 1;
   padding: 40px 60px;
@@ -108,6 +221,71 @@ body {
   color: #28a745;
 }
 
-/* Responsive adjustments */
-/* ... same as before ... */
+/* Responsividade */
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+  }
 
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #E0E0E0;
+    padding: 20px 15px;
+  }
+
+  .sidebar.collapsed {
+    width: 100%;
+  }
+
+  .toggle-sidebar {
+    display: none;
+  }
+
+  .menu-text {
+    display: block;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  .content-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .content-header h1 {
+    margin-bottom: 10px;
+  }
+
+  .project-info {
+    margin-top: 10px;
+  }
+
+  .sidebar.collapsed .menu-text {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Remover sublinhado de todos os links */
+a {
+  text-decoration: none;
+}
+
+/* Garantir que os ícones fiquem brancos */
+.sidebar i {
+  color: var(--sidebar-text-color);
+}
+
+/* Ajuste para não comprimir os ícones na sidebar retraída */
+.sidebar.collapsed .step a {
+  justify-content: center;
+}
+
+.sidebar.collapsed .step a i {
+  margin-right: 0;
+  text-align: center;
+  width: 100%;
+}

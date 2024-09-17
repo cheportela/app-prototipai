@@ -1,169 +1,19 @@
-#!/bin/bash
-
-# Navigate to the public directory
-cd ~/Projetos/app-prototipai/public
-
-# Remove existing Avaliada files if they exist
-rm -f avaliada1.html avaliada4.html avaliada6.html avaliada7.html avaliada8.html avaliada9.html
-rm -f styles/styles_avaliada.css
-
-# Create an array of item numbers and titles
-declare -A items=(
-  [1]="Interface do Blog"
-  [4]="Agendamentos de Publicação"
-  [6]="Integração com APIs para Palavras-Chave"
-  [7]="Geração de Conteúdo com Regras de SEO"
-  [8]="Edição e Revisão Manual"
-  [9]="Prioridade na Geração de Conteúdo"
-)
-
-# Loop through the items and create HTML files
-for i in 1 4 6 7 8 9; do
-cat << EOF > "avaliada${i}.html"
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>${items[$i]} - Detalhes</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Links para as fontes -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&family=Pacifico&display=swap" rel="stylesheet">
-  <!-- Font Awesome CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-  <!-- Link para o arquivo CSS -->
-  <link rel="stylesheet" href="styles/styles_avaliada.css">
-
-</head>
-<body>
-
-  <!-- Menu Superior -->
-  <nav class="navbar">
-    <div class="navbar-logo">Prototipaí</div>
-    <ul class="navbar-menu">
-      <li><a href="inicio.html">Início</a></li>
-      <li><a href="projetos.html">Projetos</a></li>
-      <li><a href="configuracoes.html">Configurações</a></li>
-    </ul>
-  </nav>
-
-  <!-- Container Principal -->
-  <div class="main-container">
-    <!-- Menu Lateral Passo a Passo -->
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <button class="toggle-sidebar"><i class="fas fa-bars"></i></button>
-      </div>
-      <ul class="step-menu">
-        <li class="step">
-          <a href="index.html">
-            <i class="fas fa-bullseye"></i>
-            <span class="menu-text">Escopo</span>
-          </a>
-        </li>
-        <li class="step">
-          <a href="requisitos.html">
-            <i class="fas fa-list-alt"></i>
-            <span class="menu-text">Requisitos</span>
-          </a>
-        </li>
-        <li class="step">
-          <a href="user_story.html">
-            <i class="fas fa-book-open"></i>
-            <span class="menu-text">User Stories</span>
-          </a>
-        </li>
-        <li class="step">
-          <a href="prompts.html">
-            <i class="fas fa-robot"></i>
-            <span class="menu-text">Prompts</span>
-          </a>
-        </li>
-        <li class="step">
-          <a href="deploy.html">
-            <i class="fas fa-cloud-upload-alt"></i>
-            <span class="menu-text">Deploy</span>
-          </a>
-        </li>
-      </ul>
-    </aside>
-
-    <!-- Conteúdo Principal -->
-    <main class="content">
-      <!-- Título e Informações -->
-      <div class="content-header">
-        <h1>${items[$i]}</h1>
-        <div class="project-info">
-          <p><strong>Projeto:</strong> Nome do Projeto</p>
-          <p><strong>Requisito:</strong> ${items[$i]}</p>
-        </div>
-      </div>
-
-      <!-- Cards de Confirmação -->
-      <section class="clarification-section">
-        <!-- Card de Contradições Resolvidas -->
-        <div class="card">
-          <h2><i class="fas fa-check-circle green-icon"></i> Contradições</h2>
-          <div class="message">
-            <p>Todas as contradições foram resolvidas. Nada a declarar!</p>
-          </div>
-        </div>
-
-        <!-- Card de Pontos Esclarecidos -->
-        <div class="card">
-          <h2><i class="fas fa-check-circle green-icon"></i> Pontos a Esclarecer</h2>
-          <div class="message">
-            <p>Todos os pontos foram esclarecidos. Tudo em ordem!</p>
-          </div>
-        </div>
-
-        <!-- Card de Roteiro Concluído -->
-        <div class="card">
-          <h2><i class="fas fa-check-circle green-icon"></i> Roteiro de Perguntas</h2>
-          <div class="message">
-            <p>Não há mais perguntas a serem feitas. Vamos em frente!</p>
-          </div>
-        </div>
-      </section>
-
-    </main>
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const toggleSidebarBtn = document.querySelector('.toggle-sidebar');
-      const sidebar = document.querySelector('.sidebar');
-
-      toggleSidebarBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('collapsed');
-      });
-    });
-  </script>
-
-</body>
-</html>
-EOF
-done
-
-# Create styles/styles_avaliada.css
-cat << 'EOF' > styles/styles_avaliada.css
 /* Importação das Fontes */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&family=Pacifico&display=swap');
 
 /* Definição das Cores */
 :root {
-  --primary-color: #216fc8;
-  --secondary-color: #1A5FA8;
-  --background-color: #F7F8FA;
-  --card-background: #FFFFFF;
-  --text-color: #333333;
-  --button-color: #2d7cd2;
-  --button-text-color: #FFFFFF;
-  --sidebar-bg: #2d7cd2;
-  --sidebar-text-color: #FFFFFF;
-  --navbar-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --transition-speed: 0.3s;
+  --primary-color: #216fc8; /* Azul mais forte */
+  --secondary-color: #1A5FA8; /* Azul complementar */
+  --background-color: #F7F8FA; /* Fundo claro */
+  --card-background: #FFFFFF; /* Fundo dos cards */
+  --text-color: #333333; /* Texto principal */
+  --button-color: #2d7cd2; /* Azul petróleo mais forte */
+  --button-text-color: #FFFFFF; /* Texto dos botões */
+  --sidebar-bg: #2d7cd2; /* Azul petróleo mais forte */
+  --sidebar-text-color: #FFFFFF; /* Texto branco no sidebar */
+  --navbar-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para o navbar */
+  --transition-speed: 0.3s; /* Velocidade das transições */
 }
 
 /* Reset CSS */
@@ -184,7 +34,7 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; /* Centraliza os itens do menu */
   background-color: var(--background-color);
   padding: 15px 30px;
   box-shadow: var(--navbar-shadow);
@@ -193,10 +43,10 @@ body {
 }
 
 .navbar-logo {
-  font-family: 'Pacifico', cursive;
+  font-family: 'Pacifico', cursive; /* Fonte icônica */
   font-size: 1.8rem;
   color: var(--primary-color);
-  font-weight: 400;
+  font-weight: 400; /* Pacifico já possui estilo */
   position: absolute;
   left: 30px;
 }
@@ -205,6 +55,10 @@ body {
   list-style: none;
   display: flex;
   gap: 30px;
+}
+
+.navbar-menu li {
+  /* Centralizado */
 }
 
 .navbar-menu a {
@@ -216,6 +70,23 @@ body {
 
 .navbar-menu a:hover {
   color: var(--primary-color);
+}
+
+/* Botão Gerar Escopo do Projeto */
+.button-primary {
+  background-color: var(--button-color);
+  color: var(--button-text-color);
+  border: none;
+  padding: 12px 30px; /* Maior tamanho */
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem; /* Maior fonte */
+  transition: background-color var(--transition-speed);
+}
+
+.button-primary:hover {
+  background-color: var(--secondary-color);
 }
 
 /* Container Principal */
@@ -313,63 +184,99 @@ body {
 
 .content-header {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
 }
 
 .content-header h1 {
   font-family: 'Manrope', sans-serif;
   font-size: 1.8rem;
-  color: var(--primary-color);
+  color: var(--primary-color); /* Azul para o título */
   font-weight: 700;
 }
 
-.project-info {
-  font-size: 1rem;
-  color: var(--text-color);
-  margin-top: 10px;
+.content-header .button-primary {
+  /* Já definido anteriormente */
 }
 
-.project-info p {
-  margin-bottom: 5px;
+/* Lista de Funcionalidades */
+.functionalities-section {
+  width: 100%;
 }
 
-/* Seção de Confirmação */
-.clarification-section .card {
+.functionalities-list {
+  list-style: none;
+}
+
+.card {
   background-color: var(--card-background);
-  padding: 20px;
+  padding: 20px 25px;
   margin-bottom: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   transition: box-shadow var(--transition-speed), transform var(--transition-speed);
-  text-align: center;
 }
 
-.clarification-section .card:hover {
+.card:hover {
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
   transform: translateY(-2px);
 }
 
-.clarification-section h2 {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  margin-bottom: 15px;
+.card-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  margin-bottom: 10px;
 }
 
-.clarification-section .message p {
-  font-size: 1.1rem;
-  color: #4CAF50; /* Green color for positive messages */
+.card-header h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  font-weight: 500; /* Menor peso que o h1 */
+}
+
+.card-header h2:hover {
+  color: var(--primary-color);
+}
+
+.status-button {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 20px;
+  color: var(--button-text-color);
   font-weight: 500;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color var(--transition-speed);
 }
 
-.green-icon {
-  color: #4CAF50;
-  margin-right: 10px;
+.status-button.confirmed {
+  background-color: #28a745; /* Verde */
+}
+
+.status-button.incomplete {
+  background-color: #dc3545; /* Vermelho */
+}
+
+.status-button.pending {
+  background-color: #fd7e14; /* Laranja */
+}
+
+.status-button.pending:hover {
+  background-color: #e07b13; /* Laranja mais escuro no hover */
+}
+
+.card .status-item {
+  font-size: 0.95rem;
+  color: #555555; /* Contraste entre textos */
+  margin-bottom: 5px;
+}
+
+.card .description {
+  font-size: 1rem;
+  color: #777777; /* Contraste entre textos */
 }
 
 /* Responsividade */
@@ -410,14 +317,39 @@ body {
     margin-bottom: 10px;
   }
 
-  .project-info {
+  .card-header h2 {
+    font-size: 1.1rem;
+  }
+
+  .status-button {
+    font-size: 0.8rem;
+  }
+
+  .content-header .button-primary {
+    position: static;
     margin-top: 10px;
+    width: 100%;
+    text-align: center;
   }
 
   .sidebar.collapsed .menu-text {
     opacity: 1;
     pointer-events: auto;
   }
+}
+
+/* Estado Ativo do Menu Lateral */
+.step.active a {
+  background-color: rgba(255, 255, 255, 0.2); /* Fundo azul claro */
+  color: #0d6efd; /* Azul escuro */
+}
+
+.step.active a i {
+  color: #FFFFFF; /* Azul escuro */
+}
+
+.step.active a .menu-text {
+  color: #FFFFFF; /* Azul escuro */
 }
 
 /* Remover sublinhado de todos os links */
@@ -440,6 +372,3 @@ a {
   text-align: center;
   width: 100%;
 }
-EOF
-
-echo "All Avaliada HTML pages and styles/styles_avaliada.css have been created successfully."
