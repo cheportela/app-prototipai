@@ -1,6 +1,9 @@
 /* Importação das Fontes */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&family=Pacifico&display=swap');
 
+/* Font Awesome (Versão 5 para compatibilidade com seu HTML) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
+
 /* Definição das Cores */
 :root {
   --primary-color: #216fc8; /* Azul mais forte */
@@ -10,7 +13,7 @@
   --text-color: #333333; /* Texto principal */
   --button-color: #2d7cd2; /* Azul petróleo mais forte */
   --button-text-color: #FFFFFF; /* Texto dos botões */
-  --sidebar-bg: #2d7cd2; /* Azul petróleo mais forte */
+  --sidebar-bg: #337ab7; /* Azul petróleo mais forte */
   --sidebar-text-color: #FFFFFF; /* Texto branco no sidebar */
   --navbar-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para o navbar */
   --transition-speed: 0.3s; /* Velocidade das transições */
@@ -34,42 +37,80 @@ body {
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centraliza os itens do menu */
+  justify-content: space-between; /* Alinha itens nas extremidades */
   background-color: var(--background-color);
   padding: 15px 30px;
   box-shadow: var(--navbar-shadow);
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 1000;
 }
 
+/* Logo da Navbar */
 .navbar-logo {
   font-family: 'Pacifico', cursive; /* Fonte icônica */
   font-size: 1.8rem;
   color: var(--primary-color);
   font-weight: 400; /* Pacifico já possui estilo */
-  position: absolute;
-  left: 30px;
 }
 
+/* Menu da Navbar */
 .navbar-menu {
   list-style: none;
   display: flex;
   gap: 30px;
 }
 
-.navbar-menu li {
-  /* Centralizado */
-}
-
-.navbar-menu a {
+.navbar-menu li a {
   text-decoration: none;
   color: var(--text-color);
   font-weight: 500;
   transition: color var(--transition-speed);
 }
 
-.navbar-menu a:hover {
+.navbar-menu li a:hover {
   color: var(--primary-color);
+}
+
+/* Botões na Navbar (Notificações e Perfil) */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-profile img {
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dropdown-menu {
+  box-shadow: none;
+  display: none;
+  float: left;
+  font-size: 12px;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  text-shadow: none;
+  top: 100%;
+  z-index: 9998;
+  border: 1px solid #D9DEE4;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  background: #fff;
+}
+
+.dropdown-menu.msg_list span {
+  white-space: normal;
+}
+
+.navbar-nav .open .dropdown-menu {
+  display: block;
 }
 
 /* Botão Gerar Escopo do Projeto */
@@ -92,7 +133,8 @@ body {
 /* Container Principal */
 .main-container {
   display: flex;
-  min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px); /* Ajusta para considerar a navbar fixa */
+  margin-top: 70px; /* Espaço para a navbar fixa */
 }
 
 /* Menu Lateral */
@@ -103,7 +145,10 @@ body {
   padding: 30px 15px;
   border-right: 1px solid #E0E0E0;
   transition: width var(--transition-speed);
-  position: relative;
+  position: fixed;
+  top: 70px; /* Abaixo da navbar fixa */
+  bottom: 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -166,12 +211,22 @@ body {
 .menu-text {
   font-size: 0.9rem;
   margin-left: 10px;
-  transition: opacity var(--transition-speed);
+  transition: opacity var(--transition-speed), font-size var(--transition-speed);
 }
 
 .sidebar.collapsed .menu-text {
   opacity: 0;
   pointer-events: none;
+}
+
+.sidebar.collapsed .step a {
+  justify-content: center;
+}
+
+.sidebar.collapsed .step a i {
+  margin-right: 0;
+  text-align: center;
+  width: 100%;
 }
 
 /* Área de Conteúdo */
@@ -180,6 +235,11 @@ body {
   padding: 40px 60px;
   background-color: var(--background-color);
   transition: padding var(--transition-speed);
+  margin-left: 250px;
+}
+
+.sidebar.collapsed ~ .content {
+  margin-left: 70px;
 }
 
 .content-header {
@@ -290,6 +350,7 @@ body {
     border-right: none;
     border-bottom: 1px solid #E0E0E0;
     padding: 20px 15px;
+    position: relative;
   }
 
   .sidebar.collapsed {
@@ -302,10 +363,14 @@ body {
 
   .menu-text {
     display: block;
+    opacity: 1;
+    pointer-events: auto;
+    font-size: 0.9rem;
   }
 
   .content {
     padding: 20px;
+    margin-left: 0;
   }
 
   .content-header {
@@ -331,11 +396,6 @@ body {
     width: 100%;
     text-align: center;
   }
-
-  .sidebar.collapsed .menu-text {
-    opacity: 1;
-    pointer-events: auto;
-  }
 }
 
 /* Estado Ativo do Menu Lateral */
@@ -345,16 +405,17 @@ body {
 }
 
 .step.active a i {
-  color: #FFFFFF; /* Azul escuro */
+  color: #FFFFFF; /* Ícone branco */
 }
 
 .step.active a .menu-text {
-  color: #FFFFFF; /* Azul escuro */
+  color: #FFFFFF; /* Texto branco */
 }
 
 /* Remover sublinhado de todos os links */
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 /* Garantir que os ícones fiquem brancos */
@@ -363,12 +424,118 @@ a {
 }
 
 /* Ajuste para não comprimir os ícones na sidebar retraída */
-.sidebar.collapsed .step a {
-  justify-content: center;
-}
-
 .sidebar.collapsed .step a i {
   margin-right: 0;
   text-align: center;
   width: 100%;
 }
+
+/* Adicionais do segundo CSS para Top Navigation, Mensagens e Perfil */
+.top_nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #EDEDED;
+  border-bottom: 1px solid #D9DEE4;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.top_nav .nav_menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-nav .dropdown-menu.msg_list {
+  width: 300px;
+}
+
+.info-number .badge {
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 13px;
+  padding: 2px 6px;
+  position: absolute;
+  right: 2px;
+  top: 8px;
+}
+
+.user-profile img {
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.dropdown-menu.msg_list li {
+  background: #f7f7f7;
+  padding: 5px;
+  display: flex;
+  margin: 6px 6px 0;
+  width: 96% !important;
+}
+
+.dropdown-menu.msg_list li:last-child {
+  margin-bottom: 6px;
+  padding: 10px;
+}
+
+.dropdown-menu.msg_list li a {
+  padding: 3px 5px !important;
+  display: flex;
+  position: relative;
+}
+
+.dropdown-menu.msg_list li a .image img {
+  border-radius: 2px;
+  float: left;
+  margin-right: 10px;
+  width: 11%;
+}
+
+.dropdown-menu.msg_list li a .time {
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 700;
+  position: absolute;
+  right: 35px;
+}
+
+.dropdown-menu.msg_list li a .message {
+  display: block !important;
+  font-size: 11px;
+}
+
+.dropdown-menu.msg_list span {
+  white-space: normal;
+}
+
+.dropdown-menu {
+  box-shadow: none;
+  display: none;
+  float: left;
+  font-size: 12px;
+  left: 0;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  text-shadow: none;
+  top: 100%;
+  z-index: 9998;
+  border: 1px solid #D9DEE4;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.navbar-nav .open .dropdown-menu {
+  display: block;
+}
+
+.navbar-nav .open .dropdown-menu.msg_list {
+  width: 300px;
+}
+

@@ -1,0 +1,590 @@
+/* =========================================
+   Cores Principais
+========================================= */
+:root {
+    /* Paleta de Cores Arco-Íris */
+    --red: #E74C3C;
+    --orange: #E67E22;
+    --yellow: #F1C40F;
+    --green: #2ECC71;
+    --blue: #3498DB;
+    --indigo: #8E44AD;
+    --violet: #9B59B6;
+
+    /* Cores Básicas */
+    --primary-black: #000000;
+    --secondary-gray: #666666;
+    --white: #FFFFFF;
+
+    /* Botões */
+    --button-bg-black: #000000;
+    --button-bg-white: #FFFFFF;
+    --button-text-black: #000000;
+    --button-text-white: #FFFFFF;
+
+    /* Cards */
+    --card-bg-black: #000000;
+    --card-bg-white: #FFFFFF;
+    --card-text-black: #000000;
+    --card-text-white: #FFFFFF;
+
+    /* Bordas */
+    --border-solid: 2px solid var(--primary-black);
+}
+
+/* =========================================
+   Estilos Globais
+========================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-black);
+    background-color: var(--white);
+    margin: 20px;
+    padding: 0;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Nunito', sans-serif;
+    color: var(--primary-black);
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.55rem;
+}
+
+/* Classe para adicionar o separador arco-íris */
+.with-separator::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: linear-gradient(to right, 
+        var(--red), 
+        var(--orange), 
+        var(--yellow), 
+        var(--green), 
+        var(--blue), 
+        var(--indigo), 
+        var(--violet));
+    margin: 0px 0 0 0; /* Sem margem superior */
+    width: 2%; /* Tracinho pequeno */
+    border-radius: 2px;
+    margin-top: 10px; /* Colar mais ao título */
+    margin-left: 0; /* Alinhado à esquerda */
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem; /* Font size reduzido conforme solicitado */
+    margin-bottom: 15px;
+    color: var(--primary-black);
+}
+
+p.secondary {
+    color: var(--secondary-gray);
+}
+
+/* =========================================
+   Botões
+========================================= */
+
+/* Botão Base */
+.button {
+    position: relative;
+    padding: 15px 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    margin: 5px;
+    font-family: 'Inter', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cores dos Botões */
+.button-black {
+    background-color: var(--button-bg-black);
+    color: var(--button-text-white);
+}
+
+.button-white {
+    background-color: var(--button-bg-white);
+    color: var(--button-text-black);
+    border: var(--border-solid);
+}
+
+/* Tamanhos dos Botões */
+.button-small {
+    padding: 7px 20px;
+    font-size: 0.8rem;
+}
+
+.button-medium {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+}
+
+.button-large {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+}
+
+/* Botões sem efeito */
+.button-no-effect {
+    /* Nenhum estilo adicional */
+}
+
+/* Botões com Efeito de Hover */
+.button-effect {
+    --gradient-opacity: 0;
+    --gradient-scale: 0;
+    --gradient-angle: 180deg;
+    --before-width: 0px;
+    --before-height: 0px;
+    position: relative;
+}
+
+.button-effect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--before-width);
+    height: var(--before-height);
+    background: conic-gradient(
+        from var(--gradient-angle),
+        var(--red),
+        var(--orange),
+        var(--yellow),
+        var(--green),
+        var(--blue),
+        var(--indigo),
+        var(--violet),
+        var(--red)
+    );
+    opacity: var(--gradient-opacity);
+    transform: translate(-50%, -50%) scale(var(--gradient-scale));
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0; /* Forma de meia-lua */
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Versão Vivid do Efeito */
+.button-effect-vivid {
+    /* Cores mais vivas */
+    --red: #FF0000;
+    --orange: #FFA500;
+    --yellow: #FFFF00;
+    --green: #00FF00;
+    --blue: #0000FF;
+    --indigo: #4B0082;
+    --violet: #EE82EE;
+}
+
+/* Versão Diffuse do Efeito */
+.button-effect-diffuse::before {
+    border-radius: 50%; /* Gradiente difuso sem meia-lua */
+}
+
+/* Botões com Efeito de Hover */
+.button-effect:hover::before,
+.button-effect-vivid:hover::before,
+.button-effect-diffuse:hover::before {
+    /* As propriedades são atualizadas via JavaScript */
+}
+
+/* Manter o texto acima do efeito */
+.button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   Separadores (hr) para Seções
+========================================= */
+
+/* Separador Cinza Mais Escuro */
+.separator-dark {
+    border: none;
+    height: 1px; /* Espessura mais fina */
+    background-color: #666666; /* Cinza mais suave */
+    margin: 40px 0;
+    width: 100%;
+}
+
+/* Separador Cinza Bem Claro */
+.separator-light {
+    border: none;
+    height: 1px; /* Espessura mais fina */
+    background-color: #f0f0f0; /* Cinza bem claro */
+    margin: 40px 0;
+    width: 100%;
+}
+
+/* Separador Gradiente Arco-íris */
+.separator-rainbow {
+    border: none;
+    height: 2px; /* Reduzir a espessura */
+    background: linear-gradient(to right, 
+        var(--red), 
+        var(--orange), 
+        var(--yellow), 
+        var(--green), 
+        var(--blue), 
+        var(--indigo), 
+        var(--violet));
+    margin: 40px 0;
+    width: 10%; /* Ocupar apenas 50% da tela */
+    border-radius: 2px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o separador */
+}
+
+
+/* =========================================
+   Cards
+========================================= */
+
+/* Card Base */
+.card {
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombreamento sutil */
+    background-color: var(--card-bg-white);
+    color: var(--card-text-black);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Card Fundo Preto, Texto Branco */
+.card-black {
+    background-color: var(--card-bg-black);
+    color: var(--card-text-white);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombreamento mais profundo */
+}
+
+/* Card Fundo Branco, Texto Preto */
+.card-white {
+    background-color: var(--card-bg-white);
+    color: var(--card-text-black);
+    border: 1px solid var(--card-bg-white); /* Borda branca moderna */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombreamento mais sutil */
+}
+
+/* Título e subtítulo nos cards */
+.card-title {
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 10px;
+}
+
+.card-subtitle {
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 15px;
+    font-weight: 400;
+    color: var(--secondary-gray);
+}
+
+.card-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem; /* Font size reduzido conforme solicitado */
+}
+
+/* Ajustes Específicos para Cards Pretos e Brancos */
+.card-black .card-title,
+.card-black .card-text {
+    color: var(--card-text-white);
+}
+
+.card-white .card-title,
+.card-white .card-text {
+    color: var(--card-text-black);
+}
+
+/* Cards Médios */
+.card-medium {
+    width: 48%; /* Aproximadamente metade da tela com margem */
+    margin: 1%;
+    font-size: 0.85rem; /* Reduzido o tamanho do texto */
+}
+
+@media (max-width: 1200px) {
+    .card-medium {
+        width: 100%; /* Em telas menores, ocupa toda a largura */
+        margin: 0 0 20px 0;
+    }
+}
+
+/* Cards Pequenos */
+.card-small {
+    width: 20%; /* Reduzido de 23% para 20% */
+    margin: 1%;
+    /* Removido font-size: 0.8rem; para usar classes específicas */
+}
+
+/* Container para Cards Pequenos */
+.cards-small-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Responsividade para Cards Pequenos */
+@media (max-width: 1200px) {
+    .card-small {
+        width: 30%; /* Ajustado para três por linha */
+    }
+}
+
+@media (max-width: 800px) {
+    .card-small {
+        width: 48%; /* 2 por linha */
+    }
+}
+
+@media (max-width: 500px) {
+    .card-small {
+        width: 100%; /* 1 por linha */
+    }
+}
+
+/* Classes Específicas para Texto de Cards Pequenos */
+.small-title {
+    font-size: 1rem; /* Aumentado um pouco o título dos cards pequenos */
+}
+
+.small-subtitle {
+    font-size: 0.85rem; /* Subtítulo proporcional */
+}
+
+.small-text {
+    font-size: 0.8rem; /* Texto menor para os cards pequenos */
+}
+
+/* =========================================
+   Tags
+========================================= */
+
+/* Tag Base */
+.tag {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--white);
+    border-radius: 20px;
+    margin: 5px;
+    text-transform: uppercase;
+    cursor: default;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Cores das Tags Arco-Íris */
+.tag-red { background-color: var(--red); }
+.tag-orange { background-color: var(--orange); }
+.tag-yellow { background-color: var(--yellow); color: var(--primary-black); } /* Contraste */
+.tag-green { background-color: var(--green); }
+.tag-blue { background-color: var(--blue); }
+.tag-indigo { background-color: var(--indigo); }
+.tag-violet { background-color: var(--violet); }
+
+/* Tags com Ícones */
+.tag-black-icon {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--white);
+    background-color: var(--primary-black);
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.tag-light {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--primary-black);
+    background-color: var(--white);
+    border: var(--border-solid);
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.tag-black-icon i, .tag-light i {
+    margin-right: 8px;
+    font-size: 1rem;
+}
+
+/* Cores dos Ícones nas Tags */
+.tag-red-icon i { color: var(--red); }
+.tag-yellow-icon i { color: var(--yellow); }
+.tag-green-icon i { color: var(--green); }
+.tag-blue-icon i { color: var(--blue); }
+
+/* Tags Light com Ícones */
+.tag-light.tag-red-icon i { color: var(--red); }
+.tag-light.tag-yellow-icon i { color: var(--yellow); }
+.tag-light.tag-green-icon i { color: var(--green); }
+.tag-light.tag-blue-icon i { color: var(--blue); }
+
+/* =========================================
+   Ícones
+========================================= */
+
+/* Ícone Base */
+.icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 24px;
+    font-family: 'Material Icons';
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ícones Circulares */
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    padding: 8px; /* Mais espaço interno */
+    border: 2px solid var(--white); /* Borda branca para os ícones circulares */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra leve */
+}
+
+/* Cores dos Ícones Circulares */
+.icon-bg-black {
+    background-color: var(--primary-black);
+    color: var(--white);
+    border: 2px solid var(--white); /* Borda branca no ícone preto */
+}
+
+.icon-bg-white {
+    background-color: var(--white);
+    color: var(--primary-black);
+}
+
+/* Ícone Circular Arco-Íris */
+.icon-bg-rainbow {
+    background: conic-gradient(
+        from 180deg,
+        var(--red),
+        var(--orange),
+        var(--yellow),
+        var(--green),
+        var(--blue),
+        var(--indigo),
+        var(--violet),
+        var(--red)
+    );
+    color: var(--white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ícone Circular Verde com Gradiente Arco-Íris */
+.icon-bg-rainbow-green {
+    background: linear-gradient(45deg, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet));
+    color: var(--white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ícone Circular Índigo com Gradiente Arco-Íris */
+.icon-bg-rainbow-indigo {
+    background: linear-gradient(45deg, var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet), var(--red), var(--orange));
+    color: var(--white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-position: 0 50%;
+}
+
+/* Ícones Sem Fundo */
+.icon-inline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Material Icons';
+    font-size: 18px;
+    color: var(--primary-black);
+    cursor: default;
+}
+
+/* Ícones Sem Fundo Brancos */
+.icon-inline-white {
+    color: var(--white);
+}
+
+/* Ícones Sem Fundo com Gradientes */
+.icon-inline-rainbow {
+    background: conic-gradient(
+        from 180deg,
+        var(--red),
+        var(--orange),
+        var(--yellow),
+        var(--green),
+        var(--blue),
+        var(--indigo),
+        var(--violet),
+        var(--red)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.icon-inline-green {
+    background: linear-gradient(45deg, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.icon-inline-indigo {
+    background: linear-gradient(45deg, var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet), var(--red), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* =========================================
+   Efeitos de Hover nos Botões com Efeito
+========================================= */
+.button-effect:hover::before,
+.button-effect-vivid:hover::before,
+.button-effect-diffuse:hover::before {
+    /* As propriedades são atualizadas via JavaScript */
+}
+
+/* =========================================
+   Layout para Cards Responsivos
+========================================= */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}

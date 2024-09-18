@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Geração de Conteúdo Automático - Detalhes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Links para as fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Manrope:wght@400;500&family=Pacifico&display=swap" rel="stylesheet">
+  <!-- Font Awesome CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+  <!-- Link para o arquivo CSS -->
+  <link rel="stylesheet" href="styles/styles_pendente.css">
+</head>
+<body>
+
+  <!-- Menu Superior -->
+  <nav class="navbar">
+    <div class="navbar-logo">Prototipaí</div>
+    <ul class="navbar-menu">
+      <li><a href="inicio.html">Início</a></li>
+      <li><a href="projetos.html">Projetos</a></li>
+      <li><a href="configuracoes.html">Configurações</a></li>
+    </ul>
+  </nav>
+
+  <!-- Container Principal -->
+  <div class="main-container">
+    <!-- Menu Lateral Passo a Passo -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <button class="toggle-sidebar"><i class="fas fa-bars"></i></button>
+      </div>
+      <ul class="step-menu">
+        <li class="step">
+          <a href="index.html">
+            <i class="fas fa-bullseye"></i>
+            <span class="menu-text">Escopo</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="requisitos.html">
+            <i class="fas fa-list-alt"></i>
+            <span class="menu-text">Requisitos</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="user_story.html">
+            <i class="fas fa-book-open"></i>
+            <span class="menu-text">User Stories</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="prompts.html">
+            <i class="fas fa-robot"></i>
+            <span class="menu-text">Prompts</span>
+          </a>
+        </li>
+        <li class="step">
+          <a href="deploy.html">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <span class="menu-text">Deploy</span>
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main class="content">
+      <!-- Título e Informações -->
+      <div class="content-header">
+        <h1>Item: Geração de Conteúdo Automático</h1>
+        <div class="project-info">
+          <p><strong>Projeto:</strong> Blog focado em JTBD Automatizado com IA</p>
+        </div>
+      </div>
+
+      <!-- Lista de Requisitos Técnicos -->
+      <section class="requisitos-tecnicos">
+        <h2><i class="fas fa-list blue-icon"></i> Requisitos Técnicos</h2>
+        <ul>
+          <li>
+            O próximo JTBD da fila deve ser selecionado automaticamente.
+            <div class="action-buttons">
+              <button class="button-primary">Aprovar</button>
+              <button class="button-secondary" onclick="toggleAjustar(this)">Ajustar</button>
+            </div>
+            <div class="ajuste-box" style="display: none;">
+              <textarea placeholder="Insira suas observações aqui..."></textarea>
+              <button class="button-primary" onclick="salvarAjuste(this)">Salvar</button>
+            </div>
+          </li>
+          <li>
+            Deve ser usado o prompt com as instruções customizadas adicionais do cliente para direcionar o conteúdo.
+            <div class="action-buttons">
+              <button class="button-primary">Aprovar</button>
+              <button class="button-secondary" onclick="toggleAjustar(this)">Ajustar</button>
+            </div>
+            <div class="ajuste-box" style="display: none;">
+              <textarea placeholder="Insira suas observações aqui..."></textarea>
+              <button class="button-primary" onclick="salvarAjuste(this)">Salvar</button>
+            </div>
+          </li>
+          <li>
+            Título do blog no máximo 60 caracteres.
+            <div class="action-buttons">
+              <button class="button-primary">Aprovar</button>
+              <button class="button-secondary" onclick="toggleAjustar(this)">Ajustar</button>
+            </div>
+            <div class="ajuste-box" style="display: none;">
+              <textarea placeholder="Insira suas observações aqui..."></textarea>
+              <button class="button-primary" onclick="salvarAjuste(this)">Salvar</button>
+            </div>
+          </li>
+          <li>
+            Descrição contendo o termo cauda longa ou JTBD principal do artigo nos primeiros 150 caracteres.
+            <div class="action-buttons">
+              <button class="button-primary">Aprovar</button>
+              <button class="button-secondary" onclick="toggleAjustar(this)">Ajustar</button>
+            </div>
+            <div class="ajuste-box" style="display: none;">
+              <textarea placeholder="Insira suas observações aqui..."></textarea>
+              <button class="button-primary" onclick="salvarAjuste(this)">Salvar</button>
+            </div>
+          </li>
+          <li>
+            Pelo menos 3 subtítulos, contendo os termos cauda longas associados.
+            <div class="action-buttons">
+              <button class="button-primary">Aprovar</button>
+              <button class="button-secondary" onclick="toggleAjustar(this)">Ajustar</button>
+            </div>
+            <div class="ajuste-box" style="display: none;">
+              <textarea placeholder="Insira suas observações aqui..."></textarea>
+              <button class="button-primary" onclick="salvarAjuste(this)">Salvar</button>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Cards de Contradições e Pontos a Esclarecer -->
+      <section class="clarification-section">
+        <!-- Card de Contradições -->
+        <div class="card">
+          <h2><i class="fas fa-check-circle green-check-icon"></i> Contradições</h2>
+          <!-- Imagem de Ilustração -->
+          <img src="https://i.ibb.co/TmYY4CN/image.jpg" alt="Ilustração Calma" class="contradictions-card-img">
+          <p class="contradictions-text">Ufa! Todas as contradições e conflitos desse item já foram resolvidos.</p>
+        </div>
+
+        <!-- Card de Pontos a Esclarecer -->
+        <div class="card">
+          <h2><i class="fas fa-question-circle orange-icon"></i> Pontos a Esclarecer</h2>
+          <ul>
+            <li>O sistema deve selecionar automaticamente o próximo JTBD da fila?</li>
+            <li>Como as instruções customizadas adicionais do cliente serão integradas nos prompts?</li>
+            <li>Existem limitações específicas para os termos de cauda longa a serem utilizados?</li>
+          </ul>
+        </div>
+
+        <!-- Roteiro de Perguntas -->
+        <div class="card">
+          <h2><i class="fas fa-list blue-icon"></i> Roteiro de Perguntas</h2>
+          <ol>
+            <li>Qual deve ser o tamanho do título do blog?</li>
+            <li>Como garantir que a descrição contenha o termo cauda longa ou JTBD principal nos primeiros 150 caracteres?</li>
+            <li>Quantos subtítulos devem ser gerados e como os termos de cauda longa associados serão incorporados?</li>
+            <li>Existem diretrizes específicas para a formatação das labels?</li>
+            <li>Como será realizado o controle de qualidade do conteúdo gerado automaticamente?</li>
+            <li>Quais mecanismos de feedback serão implementados para aprimorar os prompts com base nas respostas do cliente?</li>
+          </ol>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleSidebarBtn = document.querySelector('.toggle-sidebar');
+      const sidebar = document.querySelector('.sidebar');
+
+      toggleSidebarBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('collapsed');
+      });
+    });
+
+    // Função para alternar a exibição da caixa de ajuste
+    function toggleAjustar(button) {
+      const ajusteBox = button.parentElement.nextElementSibling;
+      ajusteBox.style.display = ajusteBox.style.display === 'none' ? 'block' : 'none';
+    }
+
+    // Função para salvar o ajuste (pode ser personalizada conforme necessário)
+    function salvarAjuste(button) {
+      const ajusteBox = button.parentElement;
+      const texto = ajusteBox.querySelector('textarea').value;
+      if (texto.trim() === '') {
+        alert('Por favor, insira suas observações antes de salvar.');
+        return;
+      }
+      // Aqui você pode adicionar a lógica para salvar o ajuste, como uma requisição AJAX
+      alert('Ajuste salvo: ' + texto);
+      ajusteBox.style.display = 'none';
+      ajusteBox.querySelector('textarea').value = '';
+    }
+  </script>
+
+</body>
+</html>
