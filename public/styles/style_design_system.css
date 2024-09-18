@@ -153,21 +153,20 @@ p.secondary {
 .button-no-effect {
     /* Nenhum estilo adicional */
 }
-
-/* Botões com Efeito de Hover */
+/* Botões com Efeito de Hover - Comportamento Global */
 .button-effect {
-    /* Pseudo-elemento para o efeito de gradiente */
     position: relative;
     overflow: hidden;
 }
 
-.button-effect::before {
+/* Botões Brancos com Efeito */
+.button-white.button-effect::before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 300%; /* Aumentado para cobrir todo o botão */
-    height: 300%; /* Aumentado para cobrir todo o botão */
+    width: 300%;
+    height: 300%;
     background: conic-gradient(
         from 180deg,
         var(--red),
@@ -181,16 +180,15 @@ p.secondary {
     );
     opacity: 0;
     transform: translate(-50%, -50%) scale(0);
-    border-radius: 50%; /* Forma circular para espalhamento uniforme */
+    border-radius: 50%;
     z-index: 0;
     pointer-events: none;
-    /* Definição da animação */
-    animation: spread 1.2s forwards; /* Aumentado para 1.2s para uma animação mais lenta */
-    /* Inicialmente, a animação não está ativa */
+    animation: spread-white 1.2s forwards;
     animation-play-state: paused;
 }
 
-@keyframes spread {
+/* Animação para Botões Brancos */
+@keyframes spread-white {
     from {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0);
@@ -201,28 +199,54 @@ p.secondary {
     }
 }
 
-.button-effect:hover::before {
+/* Aplicação do efeito de hover nos botões brancos */
+.button-white.button-effect:hover::before {
     animation-play-state: running;
 }
 
-/* Versão Vivid do Efeito */
-.button-effect-vivid::before {
+/* Botões Pretos com Efeito de Hover */
+.button-black.button-effect::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400%; /* Aumentado para destacar mais */
+    height: 400%; /* Aumentado para destacar mais */
     background: conic-gradient(
         from 180deg,
-        #FF0000, /* Vermelho mais vivo */
-        #FFA500,
-        #FFFF00,
-        #00FF00,
-        #0000FF,
-        #4B0082,
-        #EE82EE,
-        #FF0000
+        var(--red),
+        var(--orange),
+        var(--yellow),
+        var(--green),
+        var(--blue),
+        var(--indigo),
+        var(--violet),
+        var(--red)
     );
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    animation: spread-black 1.2s forwards;
+    animation-play-state: paused;
 }
 
-/* Versão Diffuse do Efeito */
-.button-effect-diffuse::before {
-    border-radius: 50%; /* Gradiente difuso sem meia-lua */
+/* Animação para Botões Pretos */
+@keyframes spread-black {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+        opacity: 0.5; /* Aumentada para melhor visibilidade no preto */
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Aplicação do efeito de hover nos botões pretos */
+.button-black.button-effect:hover::before {
+    animation-play-state: running;
 }
 
 /* Manter o texto acima do efeito */
