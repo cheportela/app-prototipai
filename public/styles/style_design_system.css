@@ -13,6 +13,7 @@
 
     /* Cores Básicas */
     --primary-black: #000000;
+    --primary-gray: #B3B3B3; /* Cinza mais claro para garantir contraste no fundo preto */
     --secondary-gray: #666666;
     --white: #FFFFFF;
 
@@ -355,11 +356,18 @@ p.secondary {
     margin-bottom: 10px;
 }
 
-.card-subtitle {
+.card-white-subtitle {
     font-family: 'Nunito', sans-serif;
     margin-bottom: 15px;
     font-weight: 400;
     color: var(--secondary-gray);
+}
+
+.card-black-subtitle {
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 15px;
+    font-weight: 400;
+    color: var(--primary-gray);
 }
 
 .card-text {
