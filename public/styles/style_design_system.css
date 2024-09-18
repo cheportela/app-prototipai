@@ -3,11 +3,11 @@
 ========================================= */
 :root {
     /* Paleta de Cores Arco-Íris */
-    --red: #E74C3C;
-    --orange: #E67E22;
-    --yellow: #F1C40F;
-    --green: #2ECC71;
-    --blue: #3498DB;
+    --red: #C0392B;    /* Ajuste para melhorar contraste */
+    --orange: #D35400; /* Ajuste para melhorar contraste */
+    --yellow: #F1C40F; /* Ajuste para melhorar contraste */
+    --green: #27AE60;  /* Mantido próximo, ajuste leve */
+    --blue: #2980B9;   /* Ajuste para melhorar contraste */
     --indigo: #8E44AD;
     --violet: #9B59B6;
 
