@@ -113,7 +113,7 @@ p.secondary {
     border-radius: 8px;
     cursor: pointer;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
     margin: 5px;
     font-family: 'Inter', sans-serif;
     display: inline-flex;
@@ -156,12 +156,9 @@ p.secondary {
 
 /* Botões com Efeito de Hover */
 .button-effect {
-    --gradient-opacity: 0;
-    --gradient-scale: 0;
-    --gradient-angle: 180deg;
-    --before-width: 0px;
-    --before-height: 0px;
+    /* Pseudo-elemento para o efeito de gradiente */
     position: relative;
+    overflow: hidden;
 }
 
 .button-effect::before {
@@ -169,10 +166,10 @@ p.secondary {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: var(--before-width);
-    height: var(--before-height);
+    width: 300%; /* Aumentado para cobrir todo o botão */
+    height: 300%; /* Aumentado para cobrir todo o botão */
     background: conic-gradient(
-        from var(--gradient-angle),
+        from 180deg,
         var(--red),
         var(--orange),
         var(--yellow),
@@ -182,24 +179,45 @@ p.secondary {
         var(--violet),
         var(--red)
     );
-    opacity: var(--gradient-opacity);
-    transform: translate(-50%, -50%) scale(var(--gradient-scale));
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0; /* Forma de meia-lua */
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out, width 0.6s ease-in-out, height 0.6s ease-in-out;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%; /* Forma circular para espalhamento uniforme */
     z-index: 0;
     pointer-events: none;
+    /* Definição da animação */
+    animation: spread 1.2s forwards; /* Aumentado para 1.2s para uma animação mais lenta */
+    /* Inicialmente, a animação não está ativa */
+    animation-play-state: paused;
+}
+
+@keyframes spread {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0);
+    }
+    to {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.button-effect:hover::before {
+    animation-play-state: running;
 }
 
 /* Versão Vivid do Efeito */
-.button-effect-vivid {
-    /* Cores mais vivas */
-    --red: #FF0000;
-    --orange: #FFA500;
-    --yellow: #FFFF00;
-    --green: #00FF00;
-    --blue: #0000FF;
-    --indigo: #4B0082;
-    --violet: #EE82EE;
+.button-effect-vivid::before {
+    background: conic-gradient(
+        from 180deg,
+        #FF0000, /* Vermelho mais vivo */
+        #FFA500,
+        #FFFF00,
+        #00FF00,
+        #0000FF,
+        #4B0082,
+        #EE82EE,
+        #FF0000
+    );
 }
 
 /* Versão Diffuse do Efeito */
@@ -207,17 +225,31 @@ p.secondary {
     border-radius: 50%; /* Gradiente difuso sem meia-lua */
 }
 
-/* Botões com Efeito de Hover */
-.button-effect:hover::before,
-.button-effect-vivid:hover::before,
-.button-effect-diffuse:hover::before {
-    /* As propriedades são atualizadas via JavaScript */
-}
-
 /* Manter o texto acima do efeito */
 .button span {
     position: relative;
     z-index: 1;
+}
+
+/* =========================================
+   Botões Sem Efeito - Efeitos de Hover
+========================================= */
+
+/* Hover para Botões Pretos sem Efeito */
+.button-no-effect.button-black:hover {
+    background-color: var(--button-bg-white);
+    color: var(--button-text-black);
+    transform: scale(1.05); /* Pequena escala para movimento */
+    border: var(--border-solid); /* Adiciona a borda preta */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover para Botões Brancos sem Efeito */
+.button-no-effect.button-white:hover {
+    background-color: var(--button-bg-black);
+    color: var(--button-text-white);
+    transform: scale(1.05); /* Pequena escala para movimento */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 /* =========================================
@@ -255,7 +287,7 @@ p.secondary {
         var(--indigo), 
         var(--violet));
     margin: 40px 0;
-    width: 10%; /* Ocupar apenas 50% da tela */
+    width: 10%; /* Ocupar apenas 10% da largura */
     border-radius: 2px;
     display: block;
     margin-left: auto;
@@ -454,7 +486,7 @@ p.secondary {
 
 /* =========================================
    Ícones
-========================================= */
+========================================== */
 
 /* Ícone Base */
 .icon {
@@ -474,23 +506,19 @@ p.secondary {
     height: 40px;
     font-size: 18px;
     padding: 8px; /* Mais espaço interno */
-    border: 2px solid var(--white); /* Borda branca para os ícones circulares */
+    border: 2px solid var(--black); /* Borda padrão preta */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra leve */
 }
 
-/* Cores dos Ícones Circulares */
-.icon-bg-black {
-    background-color: var(--primary-black);
-    color: var(--white);
-    border: 2px solid var(--white); /* Borda branca no ícone preto */
-}
-
+/* Cores dos Ícones Circulares com Fundo Branco */
 .icon-bg-white {
     background-color: var(--white);
     color: var(--primary-black);
+    border: 2px solid var(--black); /* Borda preta no ícone branco */
 }
 
-/* Ícone Circular Arco-Íris */
+
+/* Ícone Circular Arco-Íris Branco */
 .icon-bg-rainbow {
     background: conic-gradient(
         from 180deg,
@@ -506,23 +534,86 @@ p.secondary {
     color: var(--white);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Borda branca sombreada */
 }
 
-/* Ícone Circular Verde com Gradiente Arco-Íris */
+/* Ícone Circular Arco-Íris com Verde Predominante */
 .icon-bg-rainbow-green {
     background: linear-gradient(45deg, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet));
     color: var(--white);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Borda branca sombreada */
 }
 
-/* Ícone Circular Índigo com Gradiente Arco-Íris */
+/* Ícone Circular Arco-Íris com Índigo Predominante */
 .icon-bg-rainbow-indigo {
     background: linear-gradient(45deg, var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet), var(--red), var(--orange));
     color: var(--white);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-position: 0 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5); /* Borda branca sombreada */
+}
+
+/* Cores dos Ícones Circulares com Fundo Preto */
+.icon-bg-black {
+    background-color: var(--primary-black);
+    color: var(--white);
+    border: 3px solid rgba(255, 255, 255, 0.2); /* Borda branca com opacidade */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Sombra branca com opacidade */
+}
+
+
+/* Ícone Circular Preto com Miolo Arco-íris e Borda Preta Sombreada */
+.icon-bg-black-rainbow {
+    background-color: var(--primary-black); /* Fundo preto */
+    color: var(--white);
+    border: 3px solid rgba(255, 255, 255, 0.2); /* Borda branca com opacidade */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Sombra branca com opacidade */
+}
+
+.icon-bg-black-rainbow i {
+    background: conic-gradient(
+        from 180deg,
+        var(--red),
+        var(--orange),
+        var(--yellow),
+        var(--green),
+        var(--blue),
+        var(--indigo),
+        var(--violet),
+        var(--red)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ícone Circular Preto com Miolo Arco-íris com Verde Predominante e Borda Preta Sombreada */
+.icon-bg-black-rainbow-green {
+    background-color: var(--primary-black); /* Fundo preto */
+    color: var(--white);
+    border: 3px solid rgba(255, 255, 255, 0.2); /* Borda branca com opacidade */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Sombra branca com opacidade */
+}
+
+.icon-bg-black-rainbow-green i {
+    background: linear-gradient(45deg, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ícone Circular Preto com Miolo Arco-íris com Índigo Predominante e Borda Preta Sombreada */
+.icon-bg-black-rainbow-indigo {
+    background-color: var(--primary-black); /* Fundo preto */
+    color: var(--white);
+    border: 3px solid rgba(255, 255, 255, 0.2); /* Borda branca com opacidade */
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Sombra branca com opacidade */
+}
+
+.icon-bg-black-rainbow-indigo i {
+    background: linear-gradient(45deg, var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet), var(--red), var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /* Ícones Sem Fundo */
@@ -558,26 +649,16 @@ p.secondary {
     -webkit-text-fill-color: transparent;
 }
 
-.icon-inline-green {
+.icon-inline-rainbow-green {
     background: linear-gradient(45deg, var(--red), var(--orange), var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.icon-inline-indigo {
+.icon-inline-rainbow-indigo {
     background: linear-gradient(45deg, var(--yellow), var(--green), var(--blue), var(--indigo), var(--violet), var(--red), var(--orange));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-
-/* =========================================
-   Efeitos de Hover nos Botões com Efeito
-========================================= */
-.button-effect:hover::before,
-.button-effect-vivid:hover::before,
-.button-effect-diffuse:hover::before {
-    /* As propriedades são atualizadas via JavaScript */
 }
 
 /* =========================================

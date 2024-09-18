@@ -19,7 +19,8 @@
     <!-- Botão para alternar o modo -->
     <div style="text-align: center; margin: 20px 0;">
         <button id="toggle-dark-mode" class="button button-white button-small">
-            Ativar Modo Escuro
+            <span id="toggle-icon" class="material-icons">brightness_4</span>
+            <span id="toggle-text">Ativar Modo Escuro</span>
         </button>
     </div>
 
@@ -42,7 +43,7 @@
     <section>
         <h2 class="with-separator">Tags</h2>
 
-        <h3>Tags Arco-Íris</h3>
+        <h3>Tags Arco-íris</h3>
         <span class="tag tag-red">Red</span>
         <span class="tag tag-orange">Orange</span>
         <span class="tag tag-yellow">Yellow</span>
@@ -72,9 +73,7 @@
 
     <hr class="separator-light"> <!-- Separador Cinza Bem Claro -->
 
-
     <section>
-
         <h3>Tags Versão Light</h3>
         <span class="tag-light tag-red-icon">
             <i class="material-icons">cancel</i> Reprovação
@@ -92,69 +91,95 @@
 
     <hr class="separator-dark"> <!-- Separador Cinza Mais Escuro -->
 
+<!-- =========================================
+     Seção de Ícones
+========================================== -->
+<section>
+    <h2 class="with-separator">Ícones</h2>
 
-    <!-- =========================================
-        Seção de Ícones
-    ========================================== -->
-    <section>
-        <h2 class="with-separator">Ícones</h2>
+    <!-- Ícones Circulares de Fundo Branco -->
+    <h3>Ícones Circulares de Fundo Branco</h3>
+    <div class="icon-container">
+        <!-- Ícone Circular de Fundo Branco com Miolo Preto e Borda Preta -->
+        <span class="icon icon-circle icon-bg-white">
+            <i class="material-icons">home</i>
+        </span>
 
-        <!-- Ícones Circulares -->
-        <h3>Ícones Circulares</h3>
-        <div class="icon-container">
-            <!-- Ícone Circular Preto com Miolo Branco -->
-            <span class="icon icon-circle icon-bg-black">
-                <i class="material-icons">home</i>
-            </span>
+        <!-- Ícone Circular Branco com Miolo Arco-íris Geral e Borda Branca Sombreada -->
+        <span class="icon icon-circle icon-bg-rainbow">
+            <i class="material-icons">home</i>
+        </span>
 
-            <!-- Ícone Circular Branco com Miolo Arco-íris e Borda Branca Sombreada -->
-            <span class="icon icon-circle icon-bg-rainbow">
-                <i class="material-icons">home</i>
-            </span>
+        <!-- Ícone Circular Branco com Miolo Arco-íris com Verde Predominante e Borda Branca Sombreada -->
+        <span class="icon icon-circle icon-bg-rainbow-green">
+            <i class="material-icons">home</i>
+        </span>
 
-            <!-- Ícone Circular Branco com Miolo Arco-íris com Verde Predominante e Borda Branca Sombreada -->
-            <span class="icon icon-circle icon-bg-rainbow-green">
-                <i class="material-icons">home</i>
-            </span>
+        <!-- Ícone Circular Branco com Miolo Arco-íris com Índigo Predominante e Borda Branca Sombreada -->
+        <span class="icon icon-circle icon-bg-rainbow-indigo">
+            <i class="material-icons">home</i>
+        </span>
+    </div>
 
-            <!-- Ícone Circular Branco com Miolo Arco-íris com Índigo Predominante e Borda Branca Sombreada -->
-            <span class="icon icon-circle icon-bg-rainbow-indigo">
-                <i class="material-icons">home</i>
-            </span>
+    <hr class="separator-light"> <!-- Separador Cinza Bem Claro -->
 
-        </div>
+    <!-- Ícones Circulares de Fundo Preto -->
+    <h3>Ícones Circulares de Fundo Preto</h3>
+    <div class="icon-container">
+        <!-- Ícone Circular de Fundo Preto com Miolo Branco e Borda Branca -->
+        <span class="icon icon-circle icon-bg-black">
+            <i class="material-icons">home</i>
+        </span>
 
-        <hr class="separator-light"> <!-- Separador Cinza Bem Claro -->
+        <!-- Ícone Circular Preto com Miolo Arco-íris e Borda Preta Sombreada -->
+        <span class="icon icon-circle icon-bg-black-rainbow">
+            <i class="material-icons">home</i>
+        </span>
 
-        <!-- Ícones Sem Fundo -->
-        <h3>Ícones Sem Fundo</h3>
-        <div class="icon-container">
-            <!-- Ícone Sem Fundo Branco -->
-            <span class="icon-inline icon-inline-white">
-                <i class="material-icons">settings</i>
-            </span>
+        <!-- Ícone Circular Preto com Miolo Arco-íris com Verde Predominante e Borda Preta Sombreada -->
+        <span class="icon icon-circle icon-bg-black-rainbow-green">
+            <i class="material-icons">home</i>
+        </span>
 
-            <!-- Ícone Sem Fundo Preto -->
-            <span class="icon-inline">
-                <i class="material-icons">settings</i>
-            </span>
+        <!-- Ícone Circular Preto com Miolo Arco-íris com Índigo Predominante e Borda Preta Sombreada -->
+        <span class="icon icon-circle icon-bg-black-rainbow-indigo">
+            <i class="material-icons">home</i>
+        </span>
+    </div>
 
-            <!-- Ícone Sem Fundo Arco-íris -->
-            <span class="icon-inline icon-inline-rainbow">
-                <i class="material-icons">settings</i>
-            </span>
+    <hr class="separator-light"> <!-- Separador Cinza Bem Claro -->
 
-            <!-- Fundo Arco-íris, Ícone Branco -->
-            <span class="icon icon-medium icon-bg-rainbow-indigo">
-                <i class="material-icons">settings</i>
-            </span>
+    <!-- Ícones Sem Fundo -->
+    <h3>Ícones Sem Fundo</h3>
+    <div class="icon-container">
+        <!-- Ícone Branco Sem Fundo -->
+        <span class="icon-inline icon-inline-white">
+            <i class="material-icons">settings</i>
+        </span>
 
-            <!-- Fundo Arco-íris, Ícone Branco -->
-            <span class="icon icon-medium icon-bg-rainbow-green">
-                <i class="material-icons">settings</i>
-            </span>
-        </div>
-    </section>
+        <!-- Ícone Preto Sem Fundo -->
+        <span class="icon-inline">
+            <i class="material-icons">settings</i>
+        </span>
+
+        <!-- Ícone Arco-íris Sem Fundo -->
+        <span class="icon-inline icon-inline-rainbow">
+            <i class="material-icons">settings</i>
+        </span>
+
+        <!-- Ícone Arco-íris com Índigo Predominante Sem Fundo -->
+        <span class="icon-inline icon-inline-rainbow-indigo">
+            <i class="material-icons">settings</i>
+        </span>
+
+        <!-- Ícone Arco-íris com Verde Predominante Sem Fundo -->
+        <span class="icon-inline icon-inline-rainbow-green">
+            <i class="material-icons">settings</i>
+        </span>
+    </div>
+</section>
+
+
 
     <hr class="separator-dark"> <!-- Separador Cinza Mais Escuro -->
 
@@ -190,23 +215,23 @@
 
         <!-- Botões Sem Efeito -->
         <h3>Botões Sem Efeito</h3>
-        <button class="button button-black button-large button-no-effect">
+        <button class="button button-black button-large button-no-effect button-invert">
             <span>Botão Preto</span>
         </button>
-        <button class="button button-black button-medium button-no-effect">
+        <button class="button button-black button-medium button-no-effect button-invert">
             <span>Botão Preto</span>
         </button>
-        <button class="button button-black button-small button-no-effect">
+        <button class="button button-black button-small button-no-effect button-invert">
             <span>Botão Pequeno</span>
         </button>
         
-        <button class="button button-white button-large button-no-effect">
+        <button class="button button-white button-large button-no-effect button-invert">
             <span>Botão Branco</span>
         </button>
-        <button class="button button-white button-medium button-no-effect">
+        <button class="button button-white button-medium button-no-effect button-invert">
             <span>Botão Branco</span>
         </button>
-        <button class="button button-white button-small button-no-effect">
+        <button class="button button-white button-small button-no-effect button-invert">
             <span>Botão Pequeno</span>
         </button>
     </section>
@@ -220,7 +245,6 @@
         <h2 class="with-separator">Cards</h2>
 
         <h3>Cards Grandes</h3>
-
 
         <!-- Cards Padrão -->
         <div class="card card-black">
@@ -274,79 +298,33 @@
 
     <hr class="separator-dark"> <!-- Separador Cinza Mais Escuro -->
 
-
     <!-- =========================================
-         JavaScript para Efeitos de Hover nos Botões com Efeito
+         JavaScript para Modo Escuro
     ========================================== -->
     <script>
-        // Seleciona todos os botões com efeito
-        const effectButtons = document.querySelectorAll('.button-effect, .button-effect-vivid, .button-effect-diffuse');
-
-        effectButtons.forEach(button => {
-            // Adiciona evento de mousemove
-            button.addEventListener('mousemove', (e) => {
-                const rect = button.getBoundingClientRect();
-                const x = e.clientX - rect.left; // posição X do mouse dentro do botão
-                const y = e.clientY - rect.top;  // posição Y do mouse dentro do botão
-
-                // Calcula o centro do botão
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                // Calcula o delta do mouse em relação ao centro
-                const deltaX = x - centerX;
-                const deltaY = y - centerY;
-
-                // Calcula o ângulo do mouse em relação ao centro
-                const angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI) + 180;
-
-                // Atualiza a propriedade CSS customizada para o gradiente
-                button.style.setProperty('--gradient-angle', `${angle}deg`);
-
-                // Calcula a distância do mouse em relação ao centro
-                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
-                const maxDistance = Math.sqrt(centerX * centerX + centerY * centerY);
-                const normalizedDistance = distance / maxDistance;
-
-                // Ajusta a opacidade e o scale baseado na distância
-                const newOpacity = Math.min(0.3, normalizedDistance * 0.3);
-                const newScale = 1 + normalizedDistance * 0.5; // Scale de 1 a 1.5
-
-                button.style.setProperty('--gradient-opacity', `${newOpacity}`);
-                button.style.setProperty('--gradient-scale', `${newScale}`);
-            });
-
-            // Adiciona evento de mouseenter
-            button.addEventListener('mouseenter', () => {
-                // Inicializa as variáveis CSS para o efeito de hover
-                button.style.setProperty('--gradient-opacity', '0.3');
-                button.style.setProperty('--gradient-scale', '1');
-                button.style.setProperty('--gradient-angle', '180deg');
-                button.style.setProperty('--before-width', '200px');
-                button.style.setProperty('--before-height', '100px');
-            });
-
-            // Adiciona evento de mouseleave
-            button.addEventListener('mouseleave', () => {
-                // Reseta as variáveis CSS para remover o efeito
-                button.style.setProperty('--gradient-opacity', '0');
-                button.style.setProperty('--gradient-scale', '0');
-                button.style.setProperty('--gradient-angle', '180deg'); // Reset do ângulo
-                button.style.setProperty('--before-width', '0px');
-                button.style.setProperty('--before-height', '0px');
-            });
-        });
-
-        // JavaScript para alternar o modo claro/escuro
+        // JavaScript para alternar o modo claro/escuro com persistência
         const toggleButton = document.getElementById('toggle-dark-mode');
+        const toggleIcon = document.getElementById('toggle-icon');
+        const toggleText = document.getElementById('toggle-text');
         const body = document.body;
+
+        // Verifica se há uma preferência armazenada
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            body.classList.add('dark-mode');
+            toggleText.textContent = 'Ativar Modo Claro';
+            toggleIcon.textContent = 'brightness_7'; // Ícone de sol
+        }
 
         toggleButton.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             if (body.classList.contains('dark-mode')) {
-                toggleButton.textContent = 'Ativar Modo Claro';
+                toggleText.textContent = 'Ativar Modo Claro';
+                toggleIcon.textContent = 'brightness_7'; // Ícone de sol
+                localStorage.setItem('darkMode', 'enabled');
             } else {
-                toggleButton.textContent = 'Ativar Modo Escuro';
+                toggleText.textContent = 'Ativar Modo Escuro';
+                toggleIcon.textContent = 'brightness_4'; // Ícone de lua
+                localStorage.setItem('darkMode', 'disabled');
             }
         });
     </script>
