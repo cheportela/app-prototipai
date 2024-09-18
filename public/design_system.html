@@ -16,13 +16,20 @@
 
     <h1 style="text-align: center;">Design System - Prototipaí</h1>
 
+    <!-- Botão para alternar o modo -->
+    <div style="text-align: center; margin: 20px 0;">
+        <button id="toggle-dark-mode" class="button button-white button-small">
+            Ativar Modo Escuro
+        </button>
+    </div>
+
     <hr class="separator-rainbow"> <!-- Separador Gradiente Arco-íris -->
 
     <!-- =========================================
          Seção de Tipografia
     ========================================== -->
     <section>
-        <h2 class="with-separator" class="with-separator">Tipografia</h2>
+        <h2 class="with-separator">Tipografia</h2>
         <p>Este é um exemplo de parágrafo usando a fonte <strong>Inter</strong> em preto.</p>
         <p class="secondary">Este é um exemplo de parágrafo secundário em cinza, também usando a fonte <strong>Inter</strong>.</p>
     </section>
@@ -100,17 +107,17 @@
                 <i class="material-icons">home</i>
             </span>
 
-            <!-- Ícone Circular Branco com Miolo Arco-Íris e Borda Branca Sombreada -->
+            <!-- Ícone Circular Branco com Miolo Arco-íris e Borda Branca Sombreada -->
             <span class="icon icon-circle icon-bg-rainbow">
                 <i class="material-icons">home</i>
             </span>
 
-            <!-- Ícone Circular Branco com Miolo Arco-Íris com Vede Predominante e Borda Branca Sombreada -->
+            <!-- Ícone Circular Branco com Miolo Arco-íris com Verde Predominante e Borda Branca Sombreada -->
             <span class="icon icon-circle icon-bg-rainbow-green">
                 <i class="material-icons">home</i>
             </span>
 
-            <!-- Ícone Circular Branco com Miolo Arco-Íris com Indigo Predominante e Borda Branca Sombreada -->
+            <!-- Ícone Circular Branco com Miolo Arco-íris com Índigo Predominante e Borda Branca Sombreada -->
             <span class="icon icon-circle icon-bg-rainbow-indigo">
                 <i class="material-icons">home</i>
             </span>
@@ -132,23 +139,20 @@
                 <i class="material-icons">settings</i>
             </span>
 
-            <!-- Ícone Sem Fundo Arco-Íris -->
+            <!-- Ícone Sem Fundo Arco-íris -->
             <span class="icon-inline icon-inline-rainbow">
                 <i class="material-icons">settings</i>
             </span>
 
-            <!-- Fundo Arco-Íris, Ícone Branco -->
+            <!-- Fundo Arco-íris, Ícone Branco -->
             <span class="icon icon-medium icon-bg-rainbow-indigo">
                 <i class="material-icons">settings</i>
             </span>
 
-            <!-- Fundo Arco-Íris, Ícone Branco -->
+            <!-- Fundo Arco-íris, Ícone Branco -->
             <span class="icon icon-medium icon-bg-rainbow-green">
                 <i class="material-icons">settings</i>
             </span>
-
-
-
         </div>
     </section>
 
@@ -215,7 +219,7 @@
     <section>
         <h2 class="with-separator">Cards</h2>
 
-        <h3>Cards Grandes</h2>
+        <h3>Cards Grandes</h3>
 
 
         <!-- Cards Padrão -->
@@ -233,7 +237,7 @@
 
         <hr class="separator-light"> <!-- Separador Cinza Bem Claro -->
 
-        <h3>Cards Médios</h2>
+        <h3>Cards Médios</h3>
 
         <!-- Cards Médios -->
         <div class="card card-medium card-black">
@@ -250,7 +254,7 @@
 
         <hr class="separator-light"> <!-- Separador Cinza Bem Claro -->
 
-        <h3>Cards Pequenos</h2>
+        <h3>Cards Pequenos</h3>
 
         <!-- Container para Cards Pequenos -->
         <div class="cards-small-container">
@@ -331,6 +335,19 @@
                 button.style.setProperty('--before-width', '0px');
                 button.style.setProperty('--before-height', '0px');
             });
+        });
+
+        // JavaScript para alternar o modo claro/escuro
+        const toggleButton = document.getElementById('toggle-dark-mode');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                toggleButton.textContent = 'Ativar Modo Claro';
+            } else {
+                toggleButton.textContent = 'Ativar Modo Escuro';
+            }
         });
     </script>
 
